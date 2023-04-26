@@ -47,7 +47,7 @@
             </div>
         </div>
         <div id="armica">
-            <a href="rifles.php"><img id="armica" src="gato1.jpg" alt="gato"></a>git commit -m "first commit"
+            <a href="rifles.php"><img id="armica" src="gato1.jpg" alt="gato"></a>
             <div id="jug1">
                 <h1 id="jugs">FRAN</h1>
             </div>

@@ -227,7 +227,6 @@
         <tr>
         <td style="border-bottom: 0px;">x</td>
         <td style="border-bottom: 0px;" colspan=1 >x</td>
-
         </tr>
     </tbody>
     </table>
@@ -239,30 +238,62 @@
     <table class="table table-hover">
     <thead>
         <tr>
-        <th scope="col">#</th>
-        <th scope="col">First</th>
-        <th scope="col">Last</th>
-        <th scope="col">Handle</th>
+        <th>Global Shadow Quality</th>
+        <th>Model / Texture Detail</th>
+        <th>Texture Streaming</th>
+        <th>Effect Detail</th>
         </tr>
     </thead>
     <tbody>
         <tr>
-        <th scope="row">1</th>
+        <td>x</td>
         <td>x</td>
         <td>x</td>
         <td>x</td>
         </tr>
+    </tbody>
+    <thead>
         <tr>
-    <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
+        <th>Shader Detail</th>
+        <th>Boost Player Contrast</th>
+        <th>Multicore Rendering</th>
+        <th>Multisampling Anti-Aliasing Mode</th>
         </tr>
+    </thead>
+    <tbody>
         <tr>
-    <th scope="row">3</th>
-        <td>Larry the Bird</td>
-        <td>Thornton</td>
-        <td>@twitter</td>
+        <td>x</td>
+        <td>x</td>
+        <td>x</td>
+        <td>x</td>
+        </tr>
+    </tbody>
+    <thead>
+        <tr>
+        <th>FXAA Anti-Aliasing</th>
+        <th>Texture Filtering Mode</th>
+        <th>Wait for Vertical Sync</th>
+        <th>Motion Blur</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+        <td>x</td>
+        <td>x</td>
+        <td>x</td>
+        <td>x</td>
+        </tr>
+    </tbody>
+    <thead>
+        <tr>
+        <th>Triple-Monitor Mode</th>
+        <th>Use Uber Shaders</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+        <td style="border-bottom: 0px;">x</td>
+        <td style="border-bottom: 0px;" colspan=1 >x</td>
         </tr>
     </tbody>
     </table>
