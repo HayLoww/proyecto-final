@@ -113,8 +113,7 @@
             <li><a href="#">Granadas</a></li>
         </ul>
         </li>
-        <li><a href="login.php">Login</a></li>
-    </ul>
+  
     </nav>
     </header>
 
@@ -134,7 +133,7 @@
 
             if ($datos=$sql->fetch_object()) {
                 $_SESSION['usuario'] = $usuario;
-                header('Location: usersconf.php');
+                header('Location: index.php');
                 exit;
             } else {
                 $error = 'Invalid username or password';

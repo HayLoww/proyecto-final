@@ -23,7 +23,19 @@
             <li><a href="#">Granadas</a></li>
         </ul>
         </li>
-        <li><a href="login.php">Login</a></li>
+        <li>
+            <?php 
+            session_start();
+
+            if(empty($_SESSION['usuario'])){
+                echo '<a href="login.php">Login</a>';
+            } else {
+                echo 
+                '<li class="dropdown"><a href="kennys.php">'. $_SESSION["usuario"] . '</a>
+                <ul class="submenu">
+                <li><a href="logout.php">Cerrar sesion</a></li>
+                </ul>';
+            }?></li>
     </ul>
     </nav>
 

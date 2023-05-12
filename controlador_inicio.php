@@ -10,7 +10,7 @@ if(!empty($_POST["submit"])){
         $contra=$_POST["contra"];
         $sql=$conn->query("select * from csconf.users where nombre='$usuario' and password='$contra'");
         if ($datos=$sql->fetch_object()){
-            header("location:usersconf.php");
+            header("location:index.php");
         } else{
             echo '<b><div>EL USUARIO O LA CONTRASEÑA SON INCORRECTOS</div></b>';
         }
