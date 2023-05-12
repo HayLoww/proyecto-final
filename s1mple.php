@@ -58,10 +58,27 @@
     </thead>
     <tbody>
         <tr>
-        <td>x</td>
-        <td>x</td>
-        <td>x</td>
-        <td>x</td>
+        <?php
+            $conn=new mysqli("localhost","javi", "Proyecto_2023", "csconf");
+
+            if ($conn->connect_error) {
+                die("Error: " . $conn->connect_error);
+            }
+
+            $sql = "SELECT * FROM mouse where id=1";
+
+            $resultado = $conn->query($sql);
+
+
+            if ($resultado->num_rows > 0) {
+                while ($fila = $resultado->fetch_assoc()) {
+                    echo "<th>".$fila["DPI"]."</a>" . "</th>";
+                    echo "<th>".$fila["Sensitivity"]."</a>" . "</th>";
+                    echo "<th>".$fila["eDPI"]."</a>" . "</th>";
+                    echo "<th>".$fila["ZoomSensitivity"]."</a>" . "</th>";
+                }
+            }
+        ?>
         </tr>
     </tbody>
     <thead>
@@ -74,10 +91,18 @@
     </thead>
     <tbody>
         <tr>
-        <td>x</td>
-        <td>x</td>
-        <td>x</td>
-        <td>x</td>
+            <?php
+                $resultado = $conn->query($sql);
+    
+                if ($resultado->num_rows > 0) {
+                    while ($fila = $resultado->fetch_assoc()) {
+                        echo "<th>".$fila["Hz"]."</a>" . "</th>";
+                        echo "<th>".$fila["WindowsSensitivity"]."</a>" . "</th>";
+                        echo "<th>".$fila["RawInput"]."</a>" . "</th>";
+                        echo "<th>".$fila["MouseAcceleration"]."</a>" . "</th>";
+                    }
+                }
+            ?>
         </tr>
     </tbody>
     </table>
@@ -101,10 +126,20 @@
     </thead>
     <tbody>
         <tr>
-        <td>x</td>
-        <td>x</td>
-        <td>x</td>
-        <td>x</td>
+        <?php
+                $sql = "SELECT * FROM crosshair where id=1";
+
+                $resultado = $conn->query($sql);
+    
+                if ($resultado->num_rows > 0) {
+                    while ($fila = $resultado->fetch_assoc()) {
+                        echo "<th>".$fila["DrawOutline"]."</a>" . "</th>";
+                        echo "<th>".$fila["Alpha"]."</a>" . "</th>";
+                        echo "<th>".$fila["Color"]."</a>" . "</th>";
+                        echo "<th>".$fila["Blue"]."</a>" . "</th>";
+                    }
+                }
+            ?>
         </tr>
     </tbody>
     <thead>
@@ -117,10 +152,20 @@
     </thead>
     <tbody>
         <tr>
-        <td>x</td>
-        <td>x</td>
-        <td>x</td>
-        <td>x</td>
+        <?php
+                $sql = "SELECT * FROM crosshair where id=1";
+
+                $resultado = $conn->query($sql);
+    
+                if ($resultado->num_rows > 0) {
+                    while ($fila = $resultado->fetch_assoc()) {
+                        echo "<th>".$fila["Green"]."</a>" . "</th>";
+                        echo "<th>".$fila["Red"]."</a>" . "</th>";
+                        echo "<th>".$fila["Dot"]."</a>" . "</th>";
+                        echo "<th>".$fila["Gap"]."</a>" . "</th>";
+                    }
+                }
+            ?>
         </tr>
     </tbody>
     <thead>
@@ -133,10 +178,20 @@
     </thead>
     <tbody>
         <tr>
-        <td>x</td>
-        <td>x</td>
-        <td>x</td>
-        <td>x</td>
+        <?php
+                $sql = "SELECT * FROM crosshair where id=1";
+
+                $resultado = $conn->query($sql);
+    
+                if ($resultado->num_rows > 0) {
+                    while ($fila = $resultado->fetch_assoc()) {
+                        echo "<th>".$fila["Size"]."</a>" . "</th>";
+                        echo "<th>".$fila["Style"]."</a>" . "</th>";
+                        echo "<th>".$fila["Thickness"]."</a>" . "</th>";
+                        echo "<th>".$fila["SniperWidth"]."</a>" . "</th>";
+                    }
+                }
+            ?>
         </tr>
     </tbody>
     </table>
@@ -159,10 +214,20 @@
     </thead>
     <tbody>
         <tr>
-        <td>x</td>
-        <td>x</td>
-        <td>x</td>
-        <td>x</td>
+        <?php
+                $sql = "SELECT * FROM viewmodel where id=1";
+
+                $resultado = $conn->query($sql);
+    
+                if ($resultado->num_rows > 0) {
+                    while ($fila = $resultado->fetch_assoc()) {
+                        echo "<th>".$fila["FOV"]."</a>" . "</th>";
+                        echo "<th>".$fila["OffsetX"]."</a>" . "</th>";
+                        echo "<th>".$fila["OffsetY"]."</a>" . "</th>";
+                        echo "<th>".$fila["OffsetZ"]."</a>" . "</th>";
+                    }
+                }
+            ?>
         </tr>
     </tbody>
     <thead>
@@ -175,10 +240,20 @@
     </thead>
     <tbody>
         <tr>
-        <td>x</td>
-        <td>x</td>
-        <td>x</td>
-        <td>x</td>
+        <?php
+                $sql = "SELECT * FROM viewmodel where id=1";
+
+                $resultado = $conn->query($sql);
+    
+                if ($resultado->num_rows > 0) {
+                    while ($fila = $resultado->fetch_assoc()) {
+                        echo "<th>".$fila["PresetPos"]."</a>" . "</th>";
+                        echo "<th>".$fila["ShiftLeftAmt"]."</a>" . "</th>";
+                        echo "<th>".$fila["ShiftRightAmt"]."</a>" . "</th>";
+                        echo "<th>".$fila["Recoil"]."</a>" . "</th>";
+                    }
+                }
+            ?>
         </tr>
     </tbody>
     <thead>
@@ -188,8 +263,18 @@
     </thead>
     <tbody>
         <tr>
-        <td style="border-bottom: 0px;" colspan=1 >x</td>
-        </tr>
+        <?php
+                $sql = "SELECT * FROM viewmodel where id=1";
+
+                $resultado = $conn->query($sql);
+    
+                if ($resultado->num_rows > 0) {
+                    while ($fila = $resultado->fetch_assoc()) {
+                        echo "<th colspan=1>".$fila["RightHand"]."</a>" . "</th>";
+                    }
+                }
+            ?>        
+            </tr>
     </tbody>
     </table>
 
@@ -211,10 +296,20 @@
     </thead>
     <tbody>
         <tr>
-        <td>x</td>
-        <td>x</td>
-        <td>x</td>
-        <td>x</td>
+        <?php
+                $sql = "SELECT * FROM video where id=1";
+
+                $resultado = $conn->query($sql);
+    
+                if ($resultado->num_rows > 0) {
+                    while ($fila = $resultado->fetch_assoc()) {
+                        echo "<th>".$fila["Resolution"]."</a>" . "</th>";
+                        echo "<th>".$fila["AspectRatio"]."</a>" . "</th>";
+                        echo "<th>".$fila["ScalingMode"]."</a>" . "</th>";
+                        echo "<th>".$fila["ColorMode"]."</a>" . "</th>";
+                    }
+                }
+            ?>
         </tr>
     </tbody>
     <thead>
@@ -225,8 +320,18 @@
     </thead>
     <tbody>
         <tr>
-        <td style="border-bottom: 0px;">x</td>
-        <td style="border-bottom: 0px;" colspan=1 >x</td>
+        <?php
+                $sql = "SELECT * FROM video where id=1";
+
+                $resultado = $conn->query($sql);
+    
+                if ($resultado->num_rows > 0) {
+                    while ($fila = $resultado->fetch_assoc()) {
+                        echo "<th style='border-bottom: 0px;'>".$fila["Brightness"]."</a>" . "</th>";
+                        echo "<th style='border-bottom: 0px;'>".$fila["DisplayMode"]."</a>" . "</th>";
+                    }
+                }
+            ?>
         </tr>
     </tbody>
     </table>
@@ -246,10 +351,20 @@
     </thead>
     <tbody>
         <tr>
-        <td>x</td>
-        <td>x</td>
-        <td>x</td>
-        <td>x</td>
+        <?php
+                $sql = "SELECT * FROM adv where id=1";
+
+                $resultado = $conn->query($sql);
+    
+                if ($resultado->num_rows > 0) {
+                    while ($fila = $resultado->fetch_assoc()) {
+                        echo "<th>".$fila["globalShadowQuality"]."</a>" . "</th>";
+                        echo "<th>".$fila["modelTextureDetail"]."</a>" . "</th>";
+                        echo "<th>".$fila["textureStreaming"]."</a>" . "</th>";
+                        echo "<th>".$fila["effectDetail"]."</a>" . "</th>";
+                    }
+                }
+            ?>
         </tr>
     </tbody>
     <thead>
@@ -262,10 +377,20 @@
     </thead>
     <tbody>
         <tr>
-        <td>x</td>
-        <td>x</td>
-        <td>x</td>
-        <td>x</td>
+        <?php
+                $sql = "SELECT * FROM adv where id=1";
+
+                $resultado = $conn->query($sql);
+    
+                if ($resultado->num_rows > 0) {
+                    while ($fila = $resultado->fetch_assoc()) {
+                        echo "<th>".$fila["shaderDetail"]."</a>" . "</th>";
+                        echo "<th>".$fila["boostPlayerContrast"]."</a>" . "</th>";
+                        echo "<th>".$fila["multicoreRendering"]."</a>" . "</th>";
+                        echo "<th>".$fila["multisamplingAntiAliasingMode"]."</a>" . "</th>";
+                    }
+                }
+            ?>
         </tr>
     </tbody>
     <thead>
@@ -278,10 +403,20 @@
     </thead>
     <tbody>
         <tr>
-        <td>x</td>
-        <td>x</td>
-        <td>x</td>
-        <td>x</td>
+        <?php
+                $sql = "SELECT * FROM adv where id=1";
+
+                $resultado = $conn->query($sql);
+    
+                if ($resultado->num_rows > 0) {
+                    while ($fila = $resultado->fetch_assoc()) {
+                        echo "<th>".$fila["fxaaAntiAliasing"]."</a>" . "</th>";
+                        echo "<th>".$fila["textureFilteringMode"]."</a>" . "</th>";
+                        echo "<th>".$fila["waitForVerticalSync"]."</a>" . "</th>";
+                        echo "<th>".$fila["motionBlur"]."</a>" . "</th>";
+                    }
+                }
+            ?>
         </tr>
     </tbody>
     <thead>
@@ -292,8 +427,19 @@
     </thead>
     <tbody>
         <tr>
-        <td style="border-bottom: 0px;">x</td>
-        <td style="border-bottom: 0px;" colspan=1 >x</td>
+        <?php
+                $sql = "SELECT * FROM adv where id=1";
+
+                $resultado = $conn->query($sql);
+    
+                if ($resultado->num_rows > 0) {
+                    while ($fila = $resultado->fetch_assoc()) {
+                        echo "<th style='border-bottom: 0px;'>".$fila["tripleMonitorMode"]."</a>" . "</th>";
+                        echo "<th style='border-bottom: 0px;' colspan=1 >".$fila["useUberShaders"]."</a>" . "</th>";
+                    }
+                }
+            ?>
+
         </tr>
     </tbody>
     </table>

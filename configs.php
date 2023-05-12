@@ -5,6 +5,19 @@
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
    <link rel="stylesheet" type="text/css" href="estilos.css">
    <script src="script.js"></script>
+   <style type="text/css">
+    footer{
+        font-size: 105%;
+        text-align: center;
+        font-weight:bold;
+        text-shadow: 4px 4px 4px black;
+        color: white;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 40px;
+}
+    </style>
 
 </head>
 <body>
@@ -38,10 +51,10 @@
         <div class="card">
             <div class="face front">
                 <img src="gato1.jpg" alt="">
-                <h3>Japan</h3>
+                <h3>S1mple</h3>
             </div>
             <div class="face back">
-                <h3>Japan</h3>
+                <h3>S1mple</h3>
                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius harum molestiae iste, nihil doloribus fugiat distinctio ducimus maxime totam nulla fuga odio non aperiam eos?</p>
                 <div class="link">
                     <a href="s1mple.php">Details</a>
@@ -52,10 +65,10 @@
         <div class="card">
             <div class="face front">
                 <img src="gato1.jpg" alt="">
-                <h3>Japan</h3>
+                <h3>NiKo</h3>
             </div>
             <div class="face back">
-                <h3>Japan</h3>
+                <h3>NiKo</h3>
                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius harum molestiae iste, nihil doloribus fugiat distinctio ducimus maxime totam nulla fuga odio non aperiam eos?</p>
                 <div class="link">
                     <a href="niko.php">Details</a>
@@ -68,10 +81,10 @@
         <div class="card">
             <div class="face front">
                 <img src="gato1.jpg" alt="">
-                <h3>Japan</h3>
+                <h3>m0NESY</h3>
             </div>
             <div class="face back">
-                <h3>Japan</h3>
+                <h3>m0NESY</h3>
                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius harum molestiae iste, nihil doloribus fugiat distinctio ducimus maxime totam nulla fuga odio non aperiam eos?</p>
                 <div class="link">
                     <a href="monesy.php">Details</a>
@@ -82,13 +95,13 @@
         <div class="card">
             <div class="face front">
                 <img src="gato1.jpg" alt="">
-                <h3>Japan</h3>
+                <h3>Shroud</h3>
             </div>
             <div class="face back">
-                <h3>Japan</h3>
+                <h3>Shroud</h3>
                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius harum molestiae iste, nihil doloribus fugiat distinctio ducimus maxime totam nulla fuga odio non aperiam eos?</p>
                 <div class="link">
-                    <a href="tenz.php">Details</a>
+                    <a href="shroud.php">Details</a>
                 </div>
             </div>
         </div>
@@ -99,10 +112,10 @@
         <div class="card">
             <div class="face front">
                 <img src="gato1.jpg" alt="">
-                <h3>Japan</h3>
+                <h3>XANTARES</h3>
             </div>
             <div class="face back">
-                <h3>Japan</h3>
+                <h3>XANTARES</h3>
                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius harum molestiae iste, nihil doloribus fugiat distinctio ducimus maxime totam nulla fuga odio non aperiam eos?</p>
                 <div class="link">
                     <a href="xantares.php">Details</a>
@@ -113,13 +126,13 @@
         <div class="card">
             <div class="face front">
                 <img src="gato1.jpg" alt="">
-                <h3>Japan</h3>
+                <h3>Shroud</h3>
             </div>
             <div class="face back">
-                <h3>Japan</h3>
+                <h3>Shroud</h3>
                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius harum molestiae iste, nihil doloribus fugiat distinctio ducimus maxime totam nulla fuga odio non aperiam eos?</p>
                 <div class="link">
-                    <a href="scream.php">Details</a>
+                    <a href="kennys.php">Details</a>
                 </div>
             </div>
         </div>
@@ -130,4 +143,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 
 </body>
+<?php
+        echo "JAVIER MEDINA QUINTARIO " . date("d/m/Y"); 
+?>
 </html>

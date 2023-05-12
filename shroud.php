@@ -29,7 +29,7 @@
     
     </header>
 
-    <h1 id="tituloarmas">XANTARES</h1>
+    <h1 id="tituloarmas">Shroud</h1>
 
     <div id="armas2">
         <div id="texto3">
@@ -65,7 +65,7 @@
                 die("Error: " . $conn->connect_error);
             }
 
-            $sql = "SELECT * FROM mouse where id=3";
+            $sql = "SELECT * FROM mouse where id=5";
 
             $resultado = $conn->query($sql);
 
@@ -127,7 +127,7 @@
     <tbody>
         <tr>
         <?php
-                $sql = "SELECT * FROM crosshair where id=3";
+                $sql = "SELECT * FROM crosshair where id=5";
 
                 $resultado = $conn->query($sql);
     
@@ -153,7 +153,7 @@
     <tbody>
         <tr>
         <?php
-                $sql = "SELECT * FROM crosshair where id=3";
+                $sql = "SELECT * FROM crosshair where id=5";
 
                 $resultado = $conn->query($sql);
     
@@ -179,7 +179,7 @@
     <tbody>
         <tr>
         <?php
-                $sql = "SELECT * FROM crosshair where id=3";
+                $sql = "SELECT * FROM crosshair where id=5";
 
                 $resultado = $conn->query($sql);
     
@@ -215,7 +215,7 @@
     <tbody>
         <tr>
         <?php
-                $sql = "SELECT * FROM viewmodel where id=3";
+                $sql = "SELECT * FROM viewmodel where id=5";
 
                 $resultado = $conn->query($sql);
     
@@ -241,7 +241,7 @@
     <tbody>
         <tr>
         <?php
-                $sql = "SELECT * FROM viewmodel where id=3";
+                $sql = "SELECT * FROM viewmodel where id=5";
 
                 $resultado = $conn->query($sql);
     
@@ -264,7 +264,7 @@
     <tbody>
         <tr>
         <?php
-                $sql = "SELECT * FROM viewmodel where id=3";
+                $sql = "SELECT * FROM viewmodel where id=5";
 
                 $resultado = $conn->query($sql);
     
@@ -297,7 +297,7 @@
     <tbody>
         <tr>
         <?php
-                $sql = "SELECT * FROM video where id=3";
+                $sql = "SELECT * FROM video where id=5";
 
                 $resultado = $conn->query($sql);
     
@@ -321,7 +321,7 @@
     <tbody>
         <tr>
         <?php
-                $sql = "SELECT * FROM video where id=3";
+                $sql = "SELECT * FROM video where id=5";
 
                 $resultado = $conn->query($sql);
     
@@ -352,7 +352,7 @@
     <tbody>
         <tr>
         <?php
-                $sql = "SELECT * FROM adv where id=3";
+                $sql = "SELECT * FROM adv where id=5";
 
                 $resultado = $conn->query($sql);
     
@@ -378,7 +378,7 @@
     <tbody>
         <tr>
         <?php
-                $sql = "SELECT * FROM adv where id=3";
+                $sql = "SELECT * FROM adv where id=5";
 
                 $resultado = $conn->query($sql);
     
@@ -404,7 +404,7 @@
     <tbody>
         <tr>
         <?php
-                $sql = "SELECT * FROM adv where id=3";
+                $sql = "SELECT * FROM adv where id=5";
 
                 $resultado = $conn->query($sql);
     
@@ -428,7 +428,7 @@
     <tbody>
         <tr>
         <?php
-                $sql = "SELECT * FROM adv where id=3";
+                $sql = "SELECT * FROM adv where id=5";
 
                 $resultado = $conn->query($sql);
     
