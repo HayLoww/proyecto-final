@@ -31,7 +31,7 @@
                 echo '<a href="login.php">Login</a>';
             } else {
                 echo 
-                '<li class="dropdown"><a href="kennys.php">'. $_SESSION["usuario"] . '</a>
+                '<li class="dropdown"><a href="lista_configs.php">'. $_SESSION["usuario"] . '</a>
                 <ul class="submenu">
                 <li><a href="logout.php">Cerrar sesion</a></li>
                 </ul>';
@@ -110,6 +110,11 @@
     <img id="fotoarma" src="gato1.jpg" alt="gato">
   </div>
 </div>
+
+<?php
+var_dump($_SESSION);
+?>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 
 </body>

@@ -144,9 +144,4 @@
     </form>
 
 </body>
-<footer>
-<?php
-        echo "JAVIER MEDINA QUINTARIO " . date("d/m/Y"); 
-?>
-</footer>
 </html>

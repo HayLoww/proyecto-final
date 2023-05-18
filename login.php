@@ -113,35 +113,12 @@
             <li><a href="#">Granadas</a></li>
         </ul>
         </li>
-  
+        <li><a href="login.php">Login</a></li>
+    </ul>
     </nav>
     </header>
 
     <h1>Login</h1>
-
-    <?php
-
-        $conn=new mysqli("localhost","javi", "Proyecto_2023", "csconf");
-
-        session_start();
-
-        if (isset($_POST["submit"])) {
-            $usuario = $_POST['usuario'];
-            $contra = $_POST['contra'];
-        
-            $sql=$conn->query("select * from csconf.users where nombre='$usuario' and password='$contra'");
-
-            if ($datos=$sql->fetch_object()) {
-                $_SESSION['usuario'] = $usuario;
-                header('Location: index.php');
-                exit;
-            } else {
-                $error = 'Invalid username or password';
-            }
-        }
-       
-        
-    ?>
 
     <form action="" method="post">
          Usuario <br> <input type="text" name="usuario" placeholder="Ingresa tu usuario">
@@ -150,15 +127,12 @@
         <br>
         <input type="submit" value="Entrar" name="submit">
         <?php
+            $conn=new mysqli("localhost","javi", "Proyecto_2023", "csconf");
+
             include("controlador_inicio.php");
         ?>
     </form>
 
     <a href="registro.php">REGISTRATE AQUI</a>
 </body>
-<footer>
-<?php
-        echo "JAVIER MEDINA QUINTARIO " . date("d/m/Y"); 
-?>
-</footer>
 </html>
