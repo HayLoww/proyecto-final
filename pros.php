@@ -39,18 +39,35 @@
     </nav>
     
     </header>
+    <?php
+    $conn=new mysqli("localhost","javi", "Proyecto_2023", "csconf");
 
-    <h1 id="tituloarmas">KennyS</h1>
+    if ($conn->connect_error) {
+        die("Error: " . $conn->connect_error);
+    }
 
-    <div id="armas2">
-        <div id="texto3">
-            <p>SAKJHDBAKDBHSDOIASDJASIKJDASDPJASODSAIKDHNBSADJAS OIUDAIJ ASI HO Y IO JOI H OJ JO UB OIHUIOASHDA</p>
-        </div>
-        <div class="mw-100">
-            <img id="fotoarma" src="gato1.jpg" alt="gato">
-        </div>
-    </div>
+    $id=$_GET["id"];
 
+    $sql = "SELECT * FROM profesionals where pros_id = $id";
+
+    $resultado = $conn->query($sql);
+
+    if ($resultado->num_rows > 0) {
+        while ($fila = $resultado->fetch_assoc()) {
+            echo '<h1 id="tituloarmas">'.$fila["nombre"].'</h1>
+
+            <div id="armas2">
+                <div id="texto3">
+                    <p>'.nl2br($fila["texto"]).'</p>
+                </div>
+                <div class="mw-100">
+                    <img id="fotoarma" src='.$fila["image"].' alt="gato">
+                </div>
+            </div>';
+        }
+    }
+
+?>
     <hr>
 
     <div id="contarm">
@@ -70,16 +87,11 @@
     <tbody>
         <tr>
         <?php
-            $conn=new mysqli("localhost","javi", "Proyecto_2023", "csconf");
 
-            if ($conn->connect_error) {
-                die("Error: " . $conn->connect_error);
-            }
 
-            $sql = "SELECT * FROM mouse where id=6";
+            $sql = "SELECT * FROM mouse where id = $id";
 
             $resultado = $conn->query($sql);
-
 
             if ($resultado->num_rows > 0) {
                 while ($fila = $resultado->fetch_assoc()) {
@@ -138,7 +150,7 @@
     <tbody>
         <tr>
         <?php
-                $sql = "SELECT * FROM crosshair where id=6";
+                $sql = "SELECT * FROM crosshair where id = $id";
 
                 $resultado = $conn->query($sql);
     
@@ -164,10 +176,10 @@
     <tbody>
         <tr>
         <?php
-                $sql = "SELECT * FROM crosshair where id=6";
+                $sql = "SELECT * FROM crosshair where id = $id";
 
                 $resultado = $conn->query($sql);
-    
+
                 if ($resultado->num_rows > 0) {
                     while ($fila = $resultado->fetch_assoc()) {
                         echo "<th>".$fila["Green"]."</a>" . "</th>";
@@ -190,7 +202,7 @@
     <tbody>
         <tr>
         <?php
-                $sql = "SELECT * FROM crosshair where id=6";
+                $sql = "SELECT * FROM crosshair where id = $id";
 
                 $resultado = $conn->query($sql);
     
@@ -226,7 +238,7 @@
     <tbody>
         <tr>
         <?php
-                $sql = "SELECT * FROM viewmodel where id=6";
+                $sql = "SELECT * FROM viewmodel where id = $id";
 
                 $resultado = $conn->query($sql);
     
@@ -252,7 +264,7 @@
     <tbody>
         <tr>
         <?php
-                $sql = "SELECT * FROM viewmodel where id=6";
+                $sql = "SELECT * FROM viewmodel where id = $id";
 
                 $resultado = $conn->query($sql);
     
@@ -275,7 +287,7 @@
     <tbody>
         <tr>
         <?php
-                $sql = "SELECT * FROM viewmodel where id=6";
+                $sql = "SELECT * FROM viewmodel where id = $id";
 
                 $resultado = $conn->query($sql);
     
@@ -308,7 +320,7 @@
     <tbody>
         <tr>
         <?php
-                $sql = "SELECT * FROM video where id=6";
+                $sql = "SELECT * FROM video where id = $id";
 
                 $resultado = $conn->query($sql);
     
@@ -332,7 +344,7 @@
     <tbody>
         <tr>
         <?php
-                $sql = "SELECT * FROM video where id=6";
+                $sql = "SELECT * FROM video where id = $id";
 
                 $resultado = $conn->query($sql);
     
@@ -363,7 +375,7 @@
     <tbody>
         <tr>
         <?php
-                $sql = "SELECT * FROM adv where id=6";
+                $sql = "SELECT * FROM adv where id = $id";
 
                 $resultado = $conn->query($sql);
     
@@ -389,9 +401,9 @@
     <tbody>
         <tr>
         <?php
-                $sql = "SELECT * FROM adv where id=6";
+                 $sql = "SELECT * FROM adv where id = $id";
 
-                $resultado = $conn->query($sql);
+                 $resultado = $conn->query($sql);
     
                 if ($resultado->num_rows > 0) {
                     while ($fila = $resultado->fetch_assoc()) {
@@ -415,7 +427,7 @@
     <tbody>
         <tr>
         <?php
-                $sql = "SELECT * FROM adv where id=6";
+                $sql = "SELECT * FROM adv where id = $id";
 
                 $resultado = $conn->query($sql);
     
@@ -439,7 +451,7 @@
     <tbody>
         <tr>
         <?php
-                $sql = "SELECT * FROM adv where id=6";
+                $sql = "SELECT * FROM adv where id = $id";
 
                 $resultado = $conn->query($sql);
     

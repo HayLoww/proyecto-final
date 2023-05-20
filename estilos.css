@@ -303,7 +303,6 @@ hr{
 #armas{
   display: flex;
   align-items: center;
-
 }
 
 #texto3 {
@@ -312,8 +311,8 @@ hr{
   opacity: 0;
   transform: translateY(-50px);
   transition: all 1s ease;
-  margin-top: 50px;
-  margin-bottom: 100px;
+  margin-top: 80px;
+  margin-bottom: 30px;
   margin-left: 40px;
   margin-right: 40px;
   color: white;
@@ -371,7 +370,7 @@ hr{
   transform: translateY(-50px);
   transition: all 1s ease;
   margin-top: 50px;
-  margin-bottom: 100px;
+  margin-bottom: 50px;
   margin-left: 40px;
   margin-right: 40px;
   color: white;
@@ -389,27 +388,26 @@ hr{
 
 /*FOTOS CONFIGS.PHP*/
 
-
-
-#confs{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    min-height: 100vh;
-    
+#confs {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 10px;
+  flex-wrap: wrap;
 }
 
-
 /*TARJETAS CONFIGS.PHP*/
-
 .card {
-  position: relative;
-  display: flex;
   width: 300px;
   height: 350px;
-  margin: 80px;
-  margin-top: -10px;
-  
+  margin: 30px;
+  /* Resto del código CSS... */
+}
+
+.card-group {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .card .face {
@@ -476,6 +474,12 @@ hr{
 
 .card .back p {
   letter-spacing: 1px;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 7;
+  display: -webkit-box;
+  overflow: hidden; 
+
 } 
 
 .card:hover .front {
