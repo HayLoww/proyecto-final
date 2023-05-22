@@ -62,3 +62,8 @@ window.addEventListener("load", function() {
     var titabla3 = document.getElementById("titabla3");
     titabla3.classList.add("mostrar");
   });
+  
+  window.addEventListener("load", function() {
+    var textousers = document.getElementById("textousers");
+    textousers.classList.add("mostrar");
+  });

@@ -707,3 +707,29 @@ footer{
   width: 100%;
   height: 40px;
 }
+
+/* TEXTO EN PAGINA USERINFO*/
+
+#textousers {
+  position: relative;
+  top: -60px;
+  opacity: 0;
+  transform: translateY(-50px);
+  transition: all 1s ease;
+  margin-top: 80px;
+  margin-bottom: 30px;
+  margin-left: 40px;
+  margin-right: 40px;
+  color: white;
+  font-size: 30px;
+  text-shadow: 4px 4px 4px black;
+  width: 45%;
+  z-index: -1;
+  float: right;
+}
+
+#textousers.mostrar {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: none;
+}

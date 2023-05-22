@@ -11,7 +11,7 @@ if (!isset($_SESSION['usuario'])) {
 
 <html lang="es">
 <head>
-    <title> Inicio</title>
+    <title> CSCONF</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
    <link rel="stylesheet" type="text/css" href="estilos.css">
    <script src="script.js"></script>
@@ -127,15 +127,41 @@ if (!isset($_SESSION['usuario'])) {
         <li>
             <?php 
 
-            if(empty($_SESSION['usuario'])){
-                echo '<a href="login.php">Login</a>';
-            } else {
-                echo 
-                '<li class="dropdown"><a href="lista_configs.php">'. $_SESSION["usuario"] . '</a>
-                <ul class="submenu">
-                <li><a href="logout.php">Cerrar sesion</a></li>
-                </ul>';
-            }?></li>
+            if (empty($_SESSION['usuario'])) {
+              echo '<a href="login.php">Login</a>';
+          } else {
+              echo '
+              <li class="dropdown"><a href="lista_configs.php">' . $_SESSION["usuario"] . '</a>
+                  <ul class="submenu">
+                      <li><a href=';
+          
+              $conn = new mysqli("localhost", "javi", "Proyecto_2023", "csconf");
+          
+              if ($conn->connect_error) {
+                  die("Error: " . $conn->connect_error);
+              }
+          
+              $sql = 'SELECT * FROM users where  id=' . $_SESSION["id"];
+          
+              $resultado = $conn->query($sql);
+          
+              if ($resultado->num_rows > 0) {
+                  while ($fila = $resultado->fetch_assoc()) {
+                      if (empty($fila["email"])) {
+                          echo "completa.php";
+                      } else {
+                          echo "userinfo.php";
+                      }
+                  }
+              }
+          
+              echo '>Ver perfil</a></li>
+                      <li><a href="logout.php">Cerrar sesión</a></li>
+                  </ul>
+              </li>';
+          }
+          ?>
+            </li>
     </ul>
     </nav>
     </header>

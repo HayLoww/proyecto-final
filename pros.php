@@ -26,16 +26,42 @@
         <li>
             <?php 
             session_start();
-            
-            if(empty($_SESSION['usuario'])){
-                echo '<a href="login.php">Login</a>';
-            } else {
-                echo 
-                '<li class="dropdown"><a href="kennys.php">'. $_SESSION["usuario"] . '</a>
-                <ul class="submenu">
-                <li><a href="logout.php">Cerrar sesion</a></li>
-                </ul>';
-            }?></li>    </ul>
+
+            if (empty($_SESSION['usuario'])) {
+              echo '<a href="login.php">Login</a>';
+          } else {
+              echo '
+              <li class="dropdown"><a href="lista_configs.php">' . $_SESSION["usuario"] . '</a>
+                  <ul class="submenu">
+                      <li><a href=';
+          
+              $conn = new mysqli("localhost", "javi", "Proyecto_2023", "csconf");
+          
+              if ($conn->connect_error) {
+                  die("Error: " . $conn->connect_error);
+              }
+          
+              $sql = 'SELECT * FROM users where  id=' . $_SESSION["id"];
+          
+              $resultado = $conn->query($sql);
+          
+              if ($resultado->num_rows > 0) {
+                  while ($fila = $resultado->fetch_assoc()) {
+                      if (empty($fila["email"])) {
+                          echo "completa.php";
+                      } else {
+                          echo "userinfo.php";
+                      }
+                  }
+              }
+          
+              echo '>Ver perfil</a></li>
+                      <li><a href="logout.php">Cerrar sesión</a></li>
+                  </ul>
+              </li>';
+          }
+          ?>
+            </li>    </ul>
     </nav>
     
     </header>
@@ -72,7 +98,7 @@
 
     <div id="contarm">
     <h2 id="titabla1">Mouse</h2>
-    <img src="raton.png" alt="raton" id="imgchiquita1">
+    <img src="imagenes/raton.png" alt="raton" id="imgchiquita1">
     </div>
 
     <table class="table table-hover">
@@ -135,7 +161,7 @@
 
     <div id="contarm">
     <h2 id="titabla2">Crosshair</h2>
-    <img src="teclado.png" alt="raton" id="imgchiquita2">
+    <img src="imagenes/teclado.png" alt="raton" id="imgchiquita2">
     </div>
 
     <table class="table table-hover">
@@ -223,7 +249,7 @@
 
     <div id="contarm">
     <h2 id="titabla3">Viewmodel</h2>
-    <img src="ojo.png" alt="raton" id="imgchiquita3">
+    <img src="imagenes/ojo.png" alt="raton" id="imgchiquita3">
     </div>
 
     <table class="table table-hover">
@@ -305,7 +331,7 @@
 
     <div id="contarm">
     <h2 id="titabla4">Video Settings</h2>
-    <img src="monitor.png" alt="raton" id="imgchiquita4">
+    <img src="imagenes/monitor.png" alt="raton" id="imgchiquita4">
     </div>
 
     <table class="table table-hover">

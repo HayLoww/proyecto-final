@@ -27,26 +27,78 @@
             <?php 
             session_start();
 
-            if(empty($_SESSION['usuario'])){
-                echo '<a href="login.php">Login</a>';
-            } else {
-                echo 
-                '<li class="dropdown"><a href="kennys.php">'. $_SESSION["usuario"] . '</a>
-                <ul class="submenu">
-                <li><a href="logout.php">Cerrar sesion</a></li>
-                </ul>';
-            }?></li>
+            if (empty($_SESSION['usuario'])) {
+              echo '<a href="login.php">Login</a>';
+          } else {
+              echo '
+              <li class="dropdown"><a href="lista_configs.php">' . $_SESSION["usuario"] . '</a>
+                  <ul class="submenu">
+                      <li><a href=';
+          
+              $conn = new mysqli("localhost", "javi", "Proyecto_2023", "csconf");
+          
+              if ($conn->connect_error) {
+                  die("Error: " . $conn->connect_error);
+              }
+          
+              $sql = 'SELECT * FROM users where  id=' . $_SESSION["id"];
+          
+              $resultado = $conn->query($sql);
+          
+              if ($resultado->num_rows > 0) {
+                  while ($fila = $resultado->fetch_assoc()) {
+                      if (empty($fila["email"])) {
+                          echo "completa.php";
+                      } else {
+                          echo "userinfo.php";
+                      }
+                  }
+              }
+          
+              echo '>Ver perfil</a></li>
+                      <li><a href="logout.php">Cerrar sesión</a></li>
+                  </ul>
+              </li>';
+          }
+          ?>
+            </li>
     </ul>
     </nav>
 
    </header>
 
-   <div>
-    Nombre de usuario: 
-    <?php
-    echo $_SESSION["usuario"]
-    ?>
-   </div>
+   <?php
+    $conn=new mysqli("localhost","javi", "Proyecto_2023", "csconf");
+
+    if ($conn->connect_error) {
+        die("Error: " . $conn->connect_error);
+    }
+
+    $sql = 'SELECT * FROM users where  id='.$_SESSION["id"];
+
+    $resultado = $conn->query($sql);
+
+    if ($resultado->num_rows > 0) {
+        while ($fila = $resultado->fetch_assoc()) {
+            echo '<h1 id="tituloarmas">'.$fila["nombre"].'</h1>
+
+            <div id="armas2">
+                <div id="textousers">
+                    <p>Email: '.$fila["email"].'</p>
+                    <p>Password: '.$fila["password"].'</p>
+                    <p>Telefono: '.$fila["telefono"].'</p>
+                    <p>Direccion: '.$fila["direccion"].'</p>
+                    <p>Edad: '.$fila["edad"].'</p>
+                    <p>Fecha de registro: '.$fila["fecha_reg"].'</p>
+                </div>
+                <div class="mw-100">
+                    <img id="fotoarma" src='.$fila["image"].' alt="gato">
+                </div>
+            </div>';
+        }
+    }
+
+?>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 
 </body>
