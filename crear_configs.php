@@ -113,7 +113,11 @@ if (!isset($_SESSION['usuario'])) {
 <?php
     $conn = new mysqli("localhost", "javi", "Proyecto_2023", "csconf");
 
-    if (isset($_POST["crear"])) {
+    $sql = "SELECT * FROM csconf.configs where id= ". $_SESSION["id"];
+
+    $resultado = $conn->query($sql);
+
+/*    if (isset($_POST["crear"])) {
         // Obtener los datos del formulario
         $fov = $_POST['fov'];
         $offsetx = $_POST['offsetx'];
@@ -139,41 +143,25 @@ if (!isset($_SESSION['usuario'])) {
 
         exit;
     }
-?>
-
-<?php
-
-
-
-$conn=new mysqli("localhost","javi", "Proyecto_2023", "csconf");
-
-if ($conn->connect_error) {
-    die("Error: " . $conn->connect_error);
-}
-
-
-?>
+*/?>
 
 <form action="" method="post" enctype="multipart/form-data">
-FOV <input type="text" name="fov">
+DPI <input type="text" name="fov">
 <br>
-OffsetX <input type="text" name="offsetx">
+Sensitivity <input type="text" name="offsetx">
 <br>
-OffsetY <input type="text" name="offsety">
+eDPI <input type="text" name="offsety">
 <br>
-OffsetZ <input type="text" name="offsetz">
+ZoomSensitivity <input type="text" name="offsetz">
 <br>
-PresetPos <input type="text" name="presetpos">
+Hz <input type="text" name="presetpos">
 <br>
-ShiftLeftAmt <input type="text" name="shiftleftamt">
+WindowsSensitivity <input type="text" name="shiftleftamt">
 <br>
-ShiftRightAmt <input type="text" name="shiftrightamt">
+RawInput <input type="text" name="shiftrightamt">
 <br>
-Recoil <input type="text" name="recoil">
-<br>
-RightHand <input type="text" name="righthand">
-<br>
-user_id <input type="text" name="user_id">
+MouseAcceleration <input type="text" name="recoil">
+
 <br><br>
 <input type="submit" value="Crear" name="crear">
 

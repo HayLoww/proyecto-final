@@ -26,8 +26,10 @@
     div{
         color:red;
         text-shadow: 4px 4px 4px black;
-        font-size:20px;
+        font-size:50px;
         margin-top:40px;
+        margin-bottom:40px;
+
     }
 
     input[type=number] {
@@ -115,6 +117,13 @@
         font-size:60px;
     }
 
+    h2{
+        color:red;
+        text-shadow: 4px 4px 4px black;
+        font-size:20px;
+        margin-top:40px;
+    }
+
     </style>
 </head>
 <body>
@@ -186,8 +195,9 @@
         Direccion <br> <input type="text" name="direc" placeholder="Ingresa tu dirección">
         <br>
 
-        <p style="margin-bottom:-20px;">Foto</p><input type="file" id="inputarchivo" name="imagen" style="display: none; margin-top:30px" required><br>
-        <button><label for="inputarchivo" >Selecciona un archivo</label></button>
+        <p style="margin-bottom:-20px;">Foto</p>
+        <input type="file" id="inputarchivo" name="imagen" style=" margin-top:50px; margin-bottom:-50px;" >
+        <br>
         <br><br>
 
         <input type="submit" value="Confirmar datos" name="submit">

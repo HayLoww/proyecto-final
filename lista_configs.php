@@ -179,7 +179,7 @@ if (!isset($_SESSION['usuario'])) {
 
     /* Mostrar todas las clases y si se da a los links que filtre por esas letras */
 
-    $sql = "SELECT * FROM csconf.users where id= ". $_SESSION["id"];
+    $sql = "SELECT * FROM csconf.configs where id= ". $_SESSION["id"];
 
     $resultado = $conn->query($sql);
 
@@ -188,7 +188,7 @@ if (!isset($_SESSION['usuario'])) {
         echo "<table align=\"center\">";
         while ($fila = $resultado->fetch_assoc()) {
             echo "<tr>" ;
-            echo "<td>" . "<a href=animal.php?id=". $fila["id"]." style='color:white;text-shadow: 1px 1px 2px black;margin-right:200px;font-weight:bold;font-size:20px;'>".$fila["nombre"]."</a>" . "</td>";
+            echo "<td>" . "<a href=configusu.php?id=". $fila["id"]." style='color:white;text-shadow: 1px 1px 2px black;margin-right:200px;font-weight:bold;font-size:20px;'>".$fila["nombre"]."</a>" . "</td>";
             
             // Llamada get para borrar con un link (MUCHO TEXTO EL CSS AL IGUAL QUE EL DE ARRIBA XD)
             

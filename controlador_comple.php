@@ -6,8 +6,7 @@
     }
 
     if (!empty($_POST["submit"])) {
-        if (empty($_POST["email"]) || empty($_POST["edad"])  || empty($_POST["telef"]) || empty($_POST["direc"]) || empty($_FILES["imagen"]["tmp_name"])) {
-
+        if (empty($_POST["email"]) || empty($_POST["edad"]) || empty($_POST["telef"]) || empty($_POST["direc"]) || empty($_FILES["imagen"]["tmp_name"])) {
             echo '<b><div>HACE FALTA RELLENAR TODOS LOS DATOS</div></b>';
 
         } else {
