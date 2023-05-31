@@ -19,7 +19,7 @@
             if ($resultado->num_rows > 0) {
                 echo '<b><div>ESTE USUARIO YA ESTÁ REGISTRADO</div></b>';
             } else {
-                $contra = $_POST["contra1"];
+                $contra = password_hash($_POST["contra1"], PASSWORD_DEFAULT); // Cifra la contraseña
                 $sql = "INSERT INTO users (nombre, password, fecha_reg) VALUES ('" . $usuario . "', '" . $contra . "', NOW())";
                 $conn->query($sql);
                 $conn->close();
@@ -28,5 +28,6 @@
             }
         }
     }
+    
 
 ?>

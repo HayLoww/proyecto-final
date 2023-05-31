@@ -29,11 +29,21 @@
         <li class="dropdown">
         <a href="armas.php">Armas</a>
         <ul class="submenu">
-            <li><a href="pistolas.php">Pistolas</a></li>
-            <li><a href="#">Metralletas</a></li>
-            <li><a href="#">Rifles</a></li>
-            <li><a href="#">Armas pesadas</a></li>
-            <li><a href="#">Granadas</a></li>
+        <?php
+                  $conn = new mysqli("localhost", "javi", "Proyecto_2023", "csconf");
+                  if ($conn->connect_error) {
+                     die("Error: " . $conn->connect_error);
+                  }
+            // Consulta para obtener las armas
+
+                  $sql = "SELECT * FROM armas";
+                  $resultado = $conn->query($sql);
+
+                  // Recorrer los resultados y mostrar en la tabla
+                  while ($fila = $resultado->fetch_assoc()) {
+                     echo '<li><a href="arma.php?id=' . $fila['id'] . '"">'.$fila['nombre'].'</a>';
+                  }
+               ?>
         </ul>
         </li>
         <li>

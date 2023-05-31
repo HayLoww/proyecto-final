@@ -16,11 +16,21 @@
         <li class="dropdown">
         <a href="armas.php">Armas</a>
         <ul class="submenu">
-            <li><a href="pistolas.php">Pistolas</a></li>
-            <li><a href="#">Metralletas</a></li>
-            <li><a href="#">Rifles</a></li>
-            <li><a href="#">Armas pesadas</a></li>
-            <li><a href="#">Granadas</a></li>
+        <?php
+                  $conn = new mysqli("localhost", "javi", "Proyecto_2023", "csconf");
+                  if ($conn->connect_error) {
+                     die("Error: " . $conn->connect_error);
+                  }
+            // Consulta para obtener las armas
+
+                  $sql = "SELECT * FROM armas";
+                  $resultado = $conn->query($sql);
+
+                  // Recorrer los resultados y mostrar en la tabla
+                  while ($fila = $resultado->fetch_assoc()) {
+                     echo '<li><a href="arma.php?id=' . $fila['id'] . '"">'.$fila['nombre'].'</a>';
+                  }
+               ?>
         </ul>
         </li>
         <li>
@@ -92,22 +102,13 @@
     </div>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <a href="index.php"><img src="gato1.jpg" class="d-block w-100" alt="gatico 1"></a>
-        <div class="carousel-caption d-none d-md-block">
-          <h4>Etiqueta de la primera diapositiva</h4>
-        </div>
+        <img src="imagenes/s1mple.jpg" class="d-block w-100" alt="gatico 1">
       </div>
       <div class="carousel-item">
-        <a href="index.php"><img src="gato2.jpg" class="d-block w-100" alt="gato 2"></a>
-        <div class="carousel-caption d-none d-md-block">
-          <h4>Etiqueta de la segunda diapositiva</h4>
-        </div>
+        <img src="imagenes/niko.jpg" class="d-block w-100" alt="gato 2">
       </div>
       <div class="carousel-item">
-        <a href="index.php"><img src="gato3.jpg" class="d-block w-100" alt="gato 3"></a>
-        <div class="carousel-caption d-none d-md-block">
-          <h4>Etiqueta de la tercera diapositiva</h4>
-        </div>
+        <img src="imagenes/monesy.jpg" class="d-block w-100" alt="gato 3">
       </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
@@ -133,7 +134,7 @@
     <p>SAKJHDBAKDBHSDOIASDJASIKJDASDPJASODSAIKDHNBSADJAS OIUDAIJ ASI HO Y IO JOI H OJ JO UB OIHUIOASHDA</p>
   </div>
   <div class="mw-100">
-    <img id="fotoarma" src="gato1.jpg" alt="gato">
+    <img id="fotoarma" src="imagenes/dragonlore.jpg" alt="gato">
   </div>
 </div>
 

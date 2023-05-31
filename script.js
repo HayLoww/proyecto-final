@@ -29,11 +29,6 @@ window.addEventListener("load", function() {
   });
 
   window.addEventListener("load", function() {
-    var texto3 = document.getElementById("texto3");
-    texto3.classList.add("mostrar");
-  });
-
-  window.addEventListener("load", function() {
     var tituloconf = document.getElementById("tituloconf");
     tituloconf.classList.add("mostrar");
   });
@@ -41,11 +36,6 @@ window.addEventListener("load", function() {
   window.addEventListener("load", function() {
     var textoconf = document.getElementById("textoconf");
     textoconf.classList.add("mostrar");
-  });
-
-  window.addEventListener("load", function() {
-    var tituloarmas = document.getElementById("tituloarmas");
-    tituloarmas.classList.add("mostrar");
   });
   
   window.addEventListener("load", function() {

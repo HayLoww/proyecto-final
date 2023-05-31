@@ -308,7 +308,7 @@ hr{
 #texto3 {
   position: relative;
   top: -60px;
-  opacity: 0;
+  opacity: 1;
   transform: translateY(-50px);
   transition: all 1s ease;
   margin-top: 80px;
@@ -323,11 +323,7 @@ hr{
   float: right;
 }
 
-#texto3.mostrar {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: none;
-}
+
 
 #fotoarma {
   right: 0;
@@ -446,7 +442,7 @@ hr{
 
 .card .back {
   transform: perspective(600px) rotateY(180deg);
-  background: rgb(3, 35, 54);
+  background: linear-gradient(#2b2b36,80%, rgb(68, 1, 77));
   padding: 15px;
   color: #f3f3f3;
   display: flex;
@@ -548,22 +544,17 @@ hr{
 
 #tituloarmas {
   position: relative;
-  opacity: 0;
+  opacity: 1;
   transform: translateY(-50px);
   transition: all 1s ease;
-  margin-top: 130px;
+  margin-top: 180px;
   color: white;
   font-size: 70px;
   margin-left: 40px;
   text-shadow: 4px 4px 4px black;
-  width: 20px;
+  width: 400px;
   z-index: -1;
-}
-
-#tituloarmas.mostrar {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: none;
+  margin-bottom: -40px;
 }
 
 #titabla1{

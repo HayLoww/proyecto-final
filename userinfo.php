@@ -16,11 +16,21 @@
         <li class="dropdown">
         <a href="armas.php">Armas</a>
         <ul class="submenu">
-            <li><a href="pistolas.php">Pistolas</a></li>
-            <li><a href="#">Metralletas</a></li>
-            <li><a href="#">Rifles</a></li>
-            <li><a href="#">Armas pesadas</a></li>
-            <li><a href="#">Granadas</a></li>
+        <?php
+                  $conn = new mysqli("localhost", "javi", "Proyecto_2023", "csconf");
+                  if ($conn->connect_error) {
+                     die("Error: " . $conn->connect_error);
+                  }
+            // Consulta para obtener las armas
+
+                  $sql = "SELECT * FROM armas";
+                  $resultado = $conn->query($sql);
+
+                  // Recorrer los resultados y mostrar en la tabla
+                  while ($fila = $resultado->fetch_assoc()) {
+                     echo '<li><a href="arma.php?id=' . $fila['id'] . '"">'.$fila['nombre'].'</a>';
+                  }
+               ?>
         </ul>
         </li>
         <li>
@@ -68,36 +78,37 @@
    </header>
 
    <?php
-    $conn=new mysqli("localhost","javi", "Proyecto_2023", "csconf");
+        $conn = new mysqli("localhost", "javi", "Proyecto_2023", "csconf");
 
-    if ($conn->connect_error) {
-        die("Error: " . $conn->connect_error);
-    }
-
-    $sql = 'SELECT * FROM users where  id='.$_SESSION["id"];
-
-    $resultado = $conn->query($sql);
-
-    if ($resultado->num_rows > 0) {
-        while ($fila = $resultado->fetch_assoc()) {
-            echo '<h1 id="tituloarmas">'.$fila["nombre"].'</h1>
-
-            <div id="armas2">
-                <div id="textousers">
-                    <p>Email: '.$fila["email"].'</p>
-                    <p>Password: '.$fila["password"].'</p>
-                    <p>Telefono: '.$fila["telefono"].'</p>
-                    <p>Direccion: '.$fila["direccion"].'</p>
-                    <p>Edad: '.$fila["edad"].'</p>
-                    <p>Fecha de registro: '.$fila["fecha_reg"].'</p>
-                </div>
-                <div class="mw-100">
-                    <img id="fotoarma" src='.$fila["image"].' alt="gato">
-                </div>
-            </div>';
+        if ($conn->connect_error) {
+            die("Error: " . $conn->connect_error);
         }
-    }
 
+        $sql = 'SELECT * FROM users WHERE id = ' . $_SESSION["id"];
+        $resultado = $conn->query($sql);
+
+        if ($resultado->num_rows > 0) {
+            while ($fila = $resultado->fetch_assoc()) {
+                $contra_cifrada = $fila["password"];
+                $contra_descifrada = password_verify($_SESSION['contra'], $contra_cifrada) ? $_SESSION['contra'] : '********';
+
+                echo '<h1 id="tituloarmas">' . $fila["nombre"] . '</h1>
+
+                <div id="armas2">
+                    <div id="textousers">
+                        <p>Email: ' . $fila["email"] . '</p>
+                        <p>Password: ' . $contra_descifrada . '</p>
+                        <p>Telefono: ' . $fila["telefono"] . '</p>
+                        <p>Direccion: ' . $fila["direccion"] . '</p>
+                        <p>Edad: ' . $fila["edad"] . '</p>
+                        <p>Fecha de registro: ' . $fila["fecha_reg"] . '</p>
+                    </div>
+                    <div class="mw-100">
+                        <img id="fotoarma" src=' . $fila["image"] . ' alt="gato">
+                    </div>
+                </div>';
+            }
+        }
 ?>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 
