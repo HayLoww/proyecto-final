@@ -237,10 +237,10 @@ $kineticjs = $localhost ? "javascript/kinetic-v4.5.4.js" : "https://d3lp1msu2r81
                 <div class="tabs_wrapper">
                     <div class="tabs">
                         <div>
-                            <div for="controls" class="selected">Crosshair</div>
-                            <div for="binds_tab">Binds</div>
+                            <div for="controls" class="selected" style="color:white;">Crosshair</div>
+                            <div for="binds_tab" style="color:white;">Binds</div>
                             <div id="add_bind"
-                                title="Add crosshair to binds">+</div>
+                                title="Add crosshair to binds" style="color:white;">+</div>
                         </div>
                     </div>
                     <div class="tab_content">

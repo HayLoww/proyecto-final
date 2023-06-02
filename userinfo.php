@@ -5,9 +5,28 @@
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
    <link rel="stylesheet" type="text/css" href="estilos.css">
    <script src="script.js"></script>
+<style>
+    body {
+        margin: 0;
+        min-height: 100vh;
+    }
 
+    #mod{
+        font-size:40px;
+        text-shadow: 4px 4px 4px black;
+        text-align:center;
+        margin-top:100px;
+
+    }
+    
+    #mod a{
+            color: yellow;
+    }
+
+        
+</style>
 </head>
-<body>
+<body >
    <header>
    <nav>
     <ul class="menu">
@@ -77,7 +96,6 @@
     </nav>
 
    </header>
-
    <?php
         $conn = new mysqli("localhost", "javi", "Proyecto_2023", "csconf");
 
@@ -90,27 +108,31 @@
 
         if ($resultado->num_rows > 0) {
             while ($fila = $resultado->fetch_assoc()) {
-                $contra_cifrada = $fila["password"];
-                $contra_descifrada = password_verify($_SESSION['contra'], $contra_cifrada) ? $_SESSION['contra'] : '********';
+                $contra_descifrada = $fila["password"]; // Obtener la contraseña sin hashear
 
                 echo '<h1 id="tituloarmas">' . $fila["nombre"] . '</h1>
-
-                <div id="armas2">
-                    <div id="textousers">
+                    <div id="armas2">
+                        <div id="textousers">
                         <p>Email: ' . $fila["email"] . '</p>
-                        <p>Password: ' . $contra_descifrada . '</p>
+                        <p>Password: ' . $_SESSION["contra"] . '</p>
                         <p>Telefono: ' . $fila["telefono"] . '</p>
                         <p>Direccion: ' . $fila["direccion"] . '</p>
                         <p>Edad: ' . $fila["edad"] . '</p>
                         <p>Fecha de registro: ' . $fila["fecha_reg"] . '</p>
-                    </div>
-                    <div class="mw-100">
-                        <img id="fotoarma" src=' . $fila["image"] . ' alt="gato">
-                    </div>
-                </div>';
+                        </div>
+                        <div class="mw-100">
+                            <img id="fotoarma" src=' . $fila["image"] . ' alt="gato" >
+                        </div>
+                    </div>';
             }
         }
-?>
+    ?>
+
+
+<div id="mod" >
+   <a  href="update.php">MODIFICA TUS DATOS AQUI</a>
+</div>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 
 </body>

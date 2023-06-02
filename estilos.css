@@ -118,7 +118,7 @@ body{
 #logo {
   position: absolute;
   display: inline-block;
-  margin-top: 20px;
+  margin-top: 200px;
   height: 100vh;
   width: 50vw;
   top: 0;
@@ -133,38 +133,18 @@ body{
 }
 
 #logo video {
-  position: absolute;
+  position: relative;
   display: inline-block;
-  top: 46%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 450px;
+  width: 500px;
+  margin-left: 200px;
+
   z-index: -2;
   pointer-events: none;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
   border-radius: 25px;
 }
 
-.logo.mostrar + video.mostrar {
-  transform: translate(-50%, -50%) scale(1);
-  opacity: 1;
-}
 
-.logo-video.mostrar {
-  animation: mostrar-video 1s ease ;
-}
-
-@keyframes mostrar-video {
-  0% {
-    opacity: 0;
-    transform: translate(-40%, -50%);
-  }
-  100% {
-    opacity: 1;
-    transform: translate(-50%, -50%);
-  }
-  
-}
 
 /*TEXTO 1 PORT*/
 
@@ -178,9 +158,9 @@ body{
   margin-bottom: 100px;
   margin-left: 40px;
   color: white;
-  font-size: 23px;
+  font-size: 25px;
   text-shadow: 4px 4px 4px black;
-  width: 680px;
+  width: 40%;
   z-index: -1 ; 
 }
 
@@ -239,16 +219,16 @@ hr{
   transform: translateY(-50px);
   transition: all 1s ease;
   margin-top: 50px;
-  margin-bottom: 100px;
   margin-left: 40px;
   margin-right: 40px;
   color: white;
-  font-size: 23px;
+  font-size: 30px;
   text-shadow: 4px 4px 4px black;
-  width: 680px;
+  width: 45%;
   z-index: -1;
   float: right;
 }
+
 
 #texto2.mostrar {
   opacity: 1;
@@ -307,7 +287,7 @@ hr{
 
 #texto3 {
   position: relative;
-  top: -60px;
+  top: -30px;
   opacity: 1;
   transform: translateY(-50px);
   transition: all 1s ease;
@@ -316,7 +296,7 @@ hr{
   margin-left: 40px;
   margin-right: 40px;
   color: white;
-  font-size: 23px;
+  font-size: 30px;
   text-shadow: 4px 4px 4px black;
   width: 45%;
   z-index: -1;
@@ -723,4 +703,38 @@ footer{
   opacity: 1;
   transform: translateY(0);
   pointer-events: none;
+}
+
+#titulo4 {
+  position: relative;
+  top: -50px;
+  opacity: 1;
+  transform: translateY(-50px);
+  transition: all 1s ease;
+  margin-top: 150px;
+  color: white;
+  margin-bottom: 20px;
+  font-size: 70px;
+  margin-left: 40px;
+  text-shadow: 4px 4px 4px black;
+  width: 20px;
+  z-index: -1;  
+}
+
+
+#texto4 {
+  position: relative;
+  top: -50px;
+  opacity: 1;
+  transform: translateY(-50px);
+  transition: all 1s ease;
+  margin-top: 50px;
+  margin-left: 40px;
+  margin-right: 40px;
+  color: white;
+  font-size: 30px;
+  text-shadow: 4px 4px 4px black;
+  width: 45%;
+  z-index: -1;
+  float: right;
 }
