@@ -1,17 +1,7 @@
-<?php
-session_start();
-
-if (!isset($_SESSION['usuario'])) {
-    // DEBERIA DE SALIR ESTE ERROR PERO NO SALE XD
-    echo '<script language="javascript">alert("Introduce el usuario y la contraseña para acceder a esta pagina");</script>';
-    header('Location: login.php');
-    exit;
-}
-?>
-
 <html lang="es">
 <head>
     <title> Listado de peludines</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <style type="text/css">
     
     body {
@@ -41,7 +31,7 @@ if (!isset($_SESSION['usuario'])) {
         box-sizing: border-box;
         box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.15);
         font-size: 110%;
-        width: 30%;
+        width: 50%;
         height: 40px;
         text-align:center;
         border-radius: 15px;
@@ -54,7 +44,7 @@ if (!isset($_SESSION['usuario'])) {
         box-sizing: border-box;
         box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.15);
         font-size: 110%;
-        width: 30%;
+        width: 100%;
         height: 40px;
         text-align:center;
         border-radius: 15px;
@@ -103,6 +93,15 @@ if (!isset($_SESSION['usuario'])) {
 
     }
     
+    #view{
+        color:white;
+        width:100%;
+        position:relative;
+    }
+    
+    .view-container {
+        margin-bottom: 20px;
+    }
 
     </style>
 </head>
@@ -110,63 +109,127 @@ if (!isset($_SESSION['usuario'])) {
 
 <h1>INSERTA LOS DATOS DEL MODELO DE VISTA</h1>
 
-<?php
-    $conn = new mysqli("localhost", "javi", "Proyecto_2023", "csconf");
-
-    $sql = "SELECT * FROM csconf.configs where id= ". $_SESSION["id"];
-
-    $resultado = $conn->query($sql);
-
-/*    if (isset($_POST["crear"])) {
-        // Obtener los datos del formulario
-        $fov = $_POST['fov'];
-        $offsetx = $_POST['offsetx'];
-        $offsety = $_POST['offsety'];
-        $offsetz = $_POST['offsetz'];
-        $presetpos = $_POST['presetpos'];
-        $shiftleftamt = $_POST['shiftleftamt'];
-        $shiftrightamt = $_POST['shiftrightamt'];
-        $recoil = $_POST['recoil'];
-        $fov = $_POST['fov'];
-        $righthand = $_POST['righthand'];
-        $user_id = $_POST['user_id'];
-
-        // Obtener el ID del usuario desde la sesión
-        $usuario_id = $_SESSION['usuario_id'];
-
-        echo $usuario_id;
-        // Insertar los datos en las tablas teclado y raton
-        $conn->query("INSERT INTO viewmodeluser (FOV, OffsetX, OffsetY, OffsetZ, PresetPos, ShiftLeftAmt, ShiftRightAmt, Recoil, RightHand, user_id)
-                    VALUES ('$FOV', '$OffsetX', '$OffsetY', '$OffsetZ', '$PresetPos', '$ShiftLeftAmt', '$ShiftRightAmt', '$Recoil', '$RightHand', '$usuario_id')");
-
-        // Redirigir al usuario a la página de éxito o a cualquier otra página deseada
-
-        exit;
-    }
-*/?>
-
-<form action="" method="post" enctype="multipart/form-data">
-DPI <input type="text" name="fov">
-<br>
-Sensitivity <input type="text" name="offsetx">
-<br>
-eDPI <input type="text" name="offsety">
-<br>
-ZoomSensitivity <input type="text" name="offsetz">
-<br>
-Hz <input type="text" name="presetpos">
-<br>
-WindowsSensitivity <input type="text" name="shiftleftamt">
-<br>
-RawInput <input type="text" name="shiftrightamt">
-<br>
-MouseAcceleration <input type="text" name="recoil">
-
-<br><br>
-<input type="submit" value="Crear" name="crear">
+<form action="guardar_configuracion.php" method="POST" >
+Nombre de la configuración:
+<input type="text" name="nombre" required><br>    <div class="row view-container">
+        <div class="col-lg-4 col-md-6 mb-4">
+            <h1>VIEWMODEL</h1>
+            DPI <br> <input type="text" name="fov">
+            <br>
+            Sensitivity <br>  <input type="text" name="offsetx">
+            <br>
+            eDPI <br> <input type="text" name="offsety">
+            <br>
+            ZoomSensitivity <br> <input type="text" name="offsetz">
+            <br>
+            Hz <br> <input type="text" name="presetpos">
+            <br>
+            WindowsSensitivity <br> <input type="text" name="shiftleftamt">
+            <br>
+            RawInput <br> <input type="text" name="shiftrightamt">
+            <br>
+            MouseAcceleration <br> <input type="text" name="recoil">
+        </div>
+        <div class="col-lg-4 col-md-6 mb-4">
+            <h1>VIEWMODEL</h1>
+            DPI <br> <input type="text" name="fov">
+            <br>
+            Sensitivity <br>  <input type="text" name="offsetx">
+            <br>
+            eDPI <br> <input type="text" name="offsety">
+            <br>
+            ZoomSensitivity <br> <input type="text" name="offsetz">
+            <br>
+            Hz <br> <input type="text" name="presetpos">
+            <br>
+            WindowsSensitivity <br> <input type="text" name="shiftleftamt">
+            <br>
+            RawInput <br> <input type="text" name="shiftrightamt">
+            <br>
+            MouseAcceleration <br> <input type="text" name="recoil">
+        </div>
+        <div class="col-lg-4 col-md-6 mb-4">
+            <h1>VIEWMODEL</h1>
+            DPI <br> <input type="text" name="fov">
+            <br>
+            Sensitivity <br>  <input type="text" name="offsetx">
+            <br>
+            eDPI <br> <input type="text" name="offsety">
+            <br>
+            ZoomSensitivity <br> <input type="text" name="offsetz">
+            <br>
+            Hz <br> <input type="text" name="presetpos">
+            <br>
+            WindowsSensitivity <br> <input type="text" name="shiftleftamt">
+            <br>
+            RawInput <br> <input type="text" name="shiftrightamt">
+            <br>
+            MouseAcceleration <br> <input type="text" name="recoil">
+        </div>
+        <div class="col-lg-4 col-md-6 mb-4">
+            <h1>VIEWMODEL</h1>
+            DPI <br> <input type="text" name="fov">
+            <br>
+            Sensitivity <br>  <input type="text" name="offsetx">
+            <br>
+            eDPI <br> <input type="text" name="offsety">
+            <br>
+            ZoomSensitivity <br> <input type="text" name="offsetz">
+            <br>
+            Hz <br> <input type="text" name="presetpos">
+            <br>
+            WindowsSensitivity <br> <input type="text" name="shiftleftamt">
+            <br>
+            RawInput <br> <input type="text" name="shiftrightamt">
+            <br>
+            MouseAcceleration <br> <input type="text" name="recoil">
+        </div>
+        <div class="col-lg-4 col-md-6 mb-4">
+            <h1>VIEWMODEL</h1>
+            DPI <br> <input type="text" name="fov">
+            <br>
+            Sensitivity <br>  <input type="text" name="offsetx">
+            <br>
+            eDPI <br> <input type="text" name="offsety">
+            <br>
+            ZoomSensitivity <br> <input type="text" name="offsetz">
+            <br>
+            Hz <br> <input type="text" name="presetpos">
+            <br>
+            WindowsSensitivity <br> <input type="text" name="shiftleftamt">
+            <br>
+            RawInput <br> <input type="text" name="shiftrightamt">
+            <br>
+            MouseAcceleration <br> <input type="text" name="recoil">
+        </div>
+        <div class="col-lg-4 col-md-6 mb-4">
+            <h1>VIEWMODEL</h1>
+            DPI <br> <input type="text" name="fov">
+            <br>
+            Sensitivity <br>  <input type="text" name="offsetx">
+            <br>
+            eDPI <br> <input type="text" name="offsety">
+            <br>
+            ZoomSensitivity <br> <input type="text" name="offsetz">
+            <br>
+            Hz <br> <input type="text" name="presetpos">
+            <br>
+            WindowsSensitivity <br> <input type="text" name="shiftleftamt">
+            <br>
+            RawInput <br> <input type="text" name="shiftrightamt">
+            <br>
+            MouseAcceleration <br> <input type="text" name="recoil">
+        </div>
+        
+    </div>
+    <br><br>
+    <input type="submit" value="Crear" name="crear">
 
 </form>
 
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
 </body>
 </html>

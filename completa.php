@@ -132,6 +132,7 @@
     <ul class="menu">
         <li><a href="index.php">Inicio</a></li>
         <li><a href="configs.php">Configuraciones</a></li>
+        <li><a href="crosshair/index.php">Crosshair</a></li>
         <li class="dropdown">
         <a href="armas.php">Armas</a>
         <ul class="submenu">
@@ -195,7 +196,6 @@
     </header>
 
     <h1>COMPLETA TU PERFIL</h1>
-
     <form action="" method="post" enctype="multipart/form-data">
         Email <br> <input type="email" name="email" placeholder="Ingresa tu email">
         <br>

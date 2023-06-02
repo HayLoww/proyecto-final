@@ -21,6 +21,7 @@ if (!isset($_SESSION['usuario'])) {
         text-align: center;
         background: linear-gradient(#2b2b36,80%, rgb(68, 1, 77));
         position: relative;
+        
     }
 
     form{
@@ -28,7 +29,7 @@ if (!isset($_SESSION['usuario'])) {
         color: white;
         font-weight:bold;
         text-shadow: 4px 4px 4px black;
-        font-size: 23px;
+        font-size: 20px;
         
     }
     
@@ -66,8 +67,8 @@ if (!isset($_SESSION['usuario'])) {
 
     input[type=submit]{
         margin-top:30px;
-        width: 12%;
-        height: 40px;
+        width: 14%;
+        height: 50px;
         font-size: 105%;
         background-color: #4B0082;
         color: white;
@@ -77,18 +78,8 @@ if (!isset($_SESSION['usuario'])) {
         border-radius: 5px;
         font-weight:bold;
         margin-bottom:50px;
-    }
-
-    footer{
-        font-size: 105%;
-        text-align: center;
-        font-weight:bold;
         text-shadow: 4px 4px 4px black;
-        color: white;
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-        height: 40px;
+
     }
 
     h1{
@@ -97,13 +88,13 @@ if (!isset($_SESSION['usuario'])) {
         text-shadow: 4px 4px 4px black;
         margin-top:100px;
         font-size:60px;
+        margin-bottom:40px
     }
 
     a{
         font-size:20px;
         color: yellow;
         text-shadow: 4px 4px 4px black;
-
     }
 
     </style>
@@ -189,33 +180,27 @@ if (!isset($_SESSION['usuario'])) {
 
     /* Mostrar todas las clases y si se da a los links que filtre por esas letras */
 
-    $sql = "SELECT * FROM csconf.configs where id= ". $_SESSION["id"];
-
-    $resultado = $conn->query($sql);
-
-   if ($resultado->num_rows > 0) {
-        // Recorremos cada fila y la mostramos en una tabla
-        echo "<table align=\"center\">";
-        while ($fila = $resultado->fetch_assoc()) {
-            echo "<tr>" ;
-            echo "<td>" . "<a href=configusu.php?id=". $fila["id"]." style='color:white;text-shadow: 1px 1px 2px black;margin-right:200px;font-weight:bold;font-size:20px;'>".$fila["nombre"]."</a>" . "</td>";
-            
-            // Llamada get para borrar con un link (MUCHO TEXTO EL CSS AL IGUAL QUE EL DE ARRIBA XD)
-            
-            echo "<td style='font-weight:bold;border-style:solid;border-color:#870000;background-color:#870000;border-radius:5px;width:100px;height:35px;text-align:center;'><a style='color: white; text-decoration: none;text-shadow: 1px 1px 2px black;' href='animales_borrar.php?id=" . $fila['id'] .  "'>Borrar</a></td>";
-            echo "</tr>";
-        }
-        echo "</table>";
+    $consulta_configuraciones = "SELECT * FROM csconf.advuser";
+    $resultado_configuraciones = $conn->query($consulta_configuraciones);
+    
+    if ($resultado_configuraciones && $resultado_configuraciones->num_rows > 0) {
+      // Mostrar la lista de configuraciones
+      echo "<h2>Lista de configuraciones:</h2>";
+    
+      while ($row = $resultado_configuraciones->fetch_assoc()) {
+        $nombre_configuracion = $row['nombre_configuracion'];
+        echo "<p>$nombre_configuracion <a href='borrar_configuracion.php?nombre=" . urlencode($nombre_configuracion) . "'>Borrar</a></p>";
+      }
     } else {
-        echo "<p style='color:#FBC76C;text-shadow: 1px 1px 2px black;font-weight:bold;font-size:20px;'>Sin resultados</p>";
+      echo "No hay configuraciones almacenadas.";
     }
-
-
+    
+    // Cerrar la conexión a la base de datos
     $conn->close();
-?>
-
+    ?>
+    
 <form action="crear_configs.php" method="post" style="margin-top:50px">
-    <input type="submit" value="Crear nuevo animal" name="crear">
+    <input type="submit" value="Crear nueva config" name="crear">
 </form>
 
 </body>

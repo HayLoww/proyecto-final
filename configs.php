@@ -5,19 +5,6 @@
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
    <link rel="stylesheet" type="text/css" href="estilos.css">
    <script src="script.js"></script>
-   <style type="text/css">
-    footer{
-        font-size: 105%;
-        text-align: center;
-        font-weight:bold;
-        text-shadow: 4px 4px 4px black;
-        color: white;
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-        height: 40px;
-}
-    </style>
 
 </head>
 <body>
@@ -26,6 +13,7 @@
     <ul class="menu">
         <li><a href="index.php">Inicio</a></li>
         <li><a href="configs.php">Configuraciones</a></li>
+        <li><a href="crosshair/index.php">Crosshair</a></li>
         <li class="dropdown">
         <a href="armas.php">Armas</a>
         <ul class="submenu">

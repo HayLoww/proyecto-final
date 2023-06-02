@@ -55,6 +55,7 @@
     <ul class="menu">
         <li><a href="index.php">Inicio</a></li>
         <li><a href="configs.php">Configuraciones</a></li>
+        <li><a href="crosshair/index.php">Crosshair</a></li>
         <li class="dropdown">
         <a href="armas.php">Armas</a>
         <ul class="submenu">
