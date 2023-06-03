@@ -24,14 +24,6 @@ if (!isset($_SESSION['usuario'])) {
         
     }
 
-    form{
-        margin-top: 30px;
-        color: white;
-        font-weight:bold;
-        text-shadow: 4px 4px 4px black;
-        font-size: 20px;
-        
-    }
     
     div{
         color:red;
@@ -39,31 +31,7 @@ if (!isset($_SESSION['usuario'])) {
         font-size:20px;
     }
 
-    input[type=text] {
-        padding: 7px 10px;
-        margin: 20px 10;
-        box-sizing: border-box;
-        box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.15);
-        font-size: 110%;
-        width: 30%;
-        height: 40px;
-        text-align:center;
-        border-radius: 15px;
 
-    }
-
-    input[type=password] {
-        padding: 7px 10px;
-        margin: 20px 10;
-        box-sizing: border-box;
-        box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.15);
-        font-size: 110%;
-        width: 30%;
-        height: 40px;
-        text-align:center;
-        border-radius: 15px;
-
-    }
 
     input[type=submit]{
         margin-top:30px;
@@ -91,10 +59,32 @@ if (!isset($_SESSION['usuario'])) {
         margin-bottom:40px
     }
 
-    a{
-        font-size:20px;
-        color: yellow;
+
+    table {
+        border-collapse: separate;
+        border-spacing: 0 20px;
+        width:500px;
+        margin-top:30px;
         text-shadow: 4px 4px 4px black;
+
+    }
+
+    #borrar{
+        background-color:red;
+        border-radius:10px;
+        height:45px;
+        width:90px;
+        text-align:center;
+        justify-content:center;
+        padding-top:11px;
+        text-shadow: 5px 9px 9px black;
+        background: linear-gradient(red,50%,black);
+        font-weight:bold;
+        color:white;
+    }
+
+    .text-white{
+        font-size:20px;
     }
 
     </style>
@@ -167,37 +157,44 @@ if (!isset($_SESSION['usuario'])) {
     </nav>
     </header>
 
-
-<h1>Listado de peludines</h1>
+<h1>Listado de configuraciones</h1>
+<table align="center">
 
 <?php
+$conn = new mysqli("localhost", "javi", "Proyecto_2023", "csconf");
 
-    $conn=new mysqli("localhost","javi", "Proyecto_2023", "csconf");
+if ($conn->connect_error) {
+    die("Error: " . $conn->connect_error);
+}
 
-    if ($conn->connect_error) {
-        die("Error: " . $conn->connect_error);
+$sql = "SELECT * FROM csconf.advuser where user_id=".$_SESSION["id"];
+$resultado = $conn->query($sql);
+
+if ($resultado->num_rows > 0) {
+    // Mostrar la lista de configuraciones
+
+    while ($fila = $resultado->fetch_assoc()) {
+        $nombre_configuracion = $fila['nombre_configuracion'];
+        $config_id = $fila['id'];
+        echo "<tr>";
+        echo "<td class='d-flex justify-content-between align-items-center'>";
+        echo "<span id='enlace'>";
+        echo "<a class='text-white text-decoration-none font-weight-bold' href='ver_configuracion.php?config_id=$config_id'>$nombre_configuracion</a>";
+        echo "</span>";
+        echo "<a id='borrar' class=' text-decoration-none' href='conf_borrar.php?id=" . $fila['id'] . "'>Borrar</a>";
+        echo "</td>";
+        echo "</tr>";
     }
 
-    /* Mostrar todas las clases y si se da a los links que filtre por esas letras */
 
-    $consulta_configuraciones = "SELECT * FROM csconf.advuser";
-    $resultado_configuraciones = $conn->query($consulta_configuraciones);
-    
-    if ($resultado_configuraciones && $resultado_configuraciones->num_rows > 0) {
-      // Mostrar la lista de configuraciones
-      echo "<h2>Lista de configuraciones:</h2>";
-    
-      while ($row = $resultado_configuraciones->fetch_assoc()) {
-        $nombre_configuracion = $row['nombre_configuracion'];
-        echo "<p>$nombre_configuracion <a href='borrar_configuracion.php?nombre=" . urlencode($nombre_configuracion) . "'>Borrar</a></p>";
-      }
-    } else {
-      echo "No hay configuraciones almacenadas.";
-    }
-    
-    // Cerrar la conexión a la base de datos
-    $conn->close();
-    ?>
+} else {
+    echo "<p style='color:#FBC76C;text-shadow: 1px 1px 2px black;font-weight:bold;font-size:20px;'>Sin resultados</p>";
+}
+
+$conn->close();
+?>
+</table>
+
     
 <form action="crear_configs.php" method="post" style="margin-top:50px">
     <input type="submit" value="Crear nueva config" name="crear">

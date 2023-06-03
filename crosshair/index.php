@@ -168,6 +168,20 @@ $kineticjs = $localhost ? "javascript/kinetic-v4.5.4.js" : "https://d3lp1msu2r81
             margin-top:80px;
         }
 
+        #titulo5 {
+            top: -50px;
+            opacity: 1;
+            transform: translateY(-50px);
+            transition: all 1s ease;
+            margin-top: 100px;
+            color: white;
+            font-size: 100px;
+            text-shadow: 4px 4px 4px black;
+            z-index: -1;
+            text-align: center; 
+            margin-bottom:-130px
+        }
+
     </style>
 <!--
 <meta http-equiv="cache-control" content="max-age=0" />
@@ -217,9 +231,10 @@ $kineticjs = $localhost ? "javascript/kinetic-v4.5.4.js" : "https://d3lp1msu2r81
 </script>
 <body>
 
-    <div id="wrapper">
+    <div id="wrapper" >
+    <h1 id="titulo5">Crosshair</h1>
 
-        <div id="wrapper_table">
+        <div id="wrapper_table" style="margin-bottom:100px;">
             <div>
                 <h1>CS:GO Crosshair Generator</h1>
                 <div id="container_wrapper">
@@ -671,48 +686,6 @@ $kineticjs = $localhost ? "javascript/kinetic-v4.5.4.js" : "https://d3lp1msu2r81
 
                 </div>
             </div>
-        </div>
-
-        <?php if (strpos($_SERVER['HTTP_USER_AGENT'], 'Chrome') !== false): ?>
-            <div style="font-size: 0.6em; color: darkred; background-color: antiquewhite; display: inline; position: relative;">Chrome is having some problems with canvas framework</div>
-        <?php endif; ?>
-
-        <div class="footer">
-            <h1>CS:GO Crosshair Generator</h1>
-            - Skarbo 2012 - <a
-                title="This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 Unported License"
-                rel="license"
-                href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US"><img
-                alt="Creative Commons License" style="border-width: 0"
-                src="img/cc.png" /></a> - <span title="<table><tr>
-                    <td>0.2
-
-                    <td>Default crosshair style can choose between
-                        predefined colors<br />Paste variables directly
-                        into console
-
-                <tr>
-                    <td>0.3
-
-                    <td>Moved images to amazon
-
-                <tr>
-                    <td>0.4
-
-                    <td>Added players to background<br />URL is updated
-                        less frequently<br />Changed hash splitters
-
-                <tr>
-                    <td>0.5
-
-                    <td>Updated default crosshair representation and
-                        added fixedgap support
-                        <tr><td>0.6<td>Added binds feature (beta)
-                        <tr><td>0.7<td>Fixed crosshair bug<br />Added outline features
-                        </table>">Version 0.7</span> - Feedback: <a
-                href="http://www.reddit.com/r/GlobalOffensive/comments/1473t5/ive_created_a_csgo_crosshair_generator/" target="_blank">Reddit</a>/<a
-                href="http://forums.steampowered.com/forums/showthread.php?p=33511649#post33511649"
-                target="_blank">Steam forum</a>/<a href="https://github.com/Skarbo/CSGOCrosshair/issues" target="_blank">GitHub</a>
         </div>
 
     </div>

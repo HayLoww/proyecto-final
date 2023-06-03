@@ -123,7 +123,12 @@
       <div id="port">
          <h1 id="tituloconf">ARMAS</h1>
          <div id="textoconf">
-            <p>Minions ipsum para tú poulet tikka masala po kass pepete. Jeje potatoooo po kass chasy pepete po kass gelatooo aaaaaah belloo! Chasy. Chasy tatata bala tu po kass bananaaaa butt butt. Uuuhhh jiji bee do bee do bee do uuuhhh chasy tatata bala tu la bodaaa. Poopayee wiiiii baboiii bee do bee do bee do. Gelatooo bananaaaa poopayee para tú tatata bala tu pepete wiiiii. Bee do bee do bee do tank yuuu! Gelatooo baboiii poopayee po kass wiiiii tulaliloo po kass jeje tatata bala tu. Aaaaaah hana dul sae hana dul sae poulet tikka masala daa bananaaaa bee do bee do bee do jiji po kass la bodaaa potatoooo. Bananaaaa tulaliloo ti aamoo! Pepete me want bananaaa! Potatoooo wiiiii.</p>
+            <p>¡Sumérgete en el mundo de las armas de Counter Strike! Descubre información detallada sobre cada arma, desde estadísticas de daño y precisión hasta su disponibilidad en los diferentes bandos del juego. Conoce los precios, los cargadores y las estrategias recomendadas para sacar el máximo provecho de cada una. Prepárate para dominar el campo de batalla con nuestro completo catálogo de armamento.
+
+
+
+
+</p>
          </div>
       </div>
       <div id="fotosarmas">

@@ -2,6 +2,9 @@
 <head>
     <title> Listado de peludines</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="estilos.css">
+   <script src="script.js"></script>
+
     <style type="text/css">
     
     body {
@@ -105,128 +108,207 @@
 
     </style>
 </head>
+
+<header>
+<nav>
+    <ul class="menu">
+        <li><a href="index.php">Inicio</a></li>
+        <li><a href="configs.php">Configuraciones</a></li>
+        <li><a href="crosshair/index.php">Crosshair</a></li>
+        <li class="dropdown">
+        <a href="armas.php">Armas</a>
+        <ul class="submenu">
+        <?php
+                  $conn = new mysqli("localhost", "javi", "Proyecto_2023", "csconf");
+                  if ($conn->connect_error) {
+                     die("Error: " . $conn->connect_error);
+                  }
+            // Consulta para obtener las armas
+
+                  $sql = "SELECT * FROM armas";
+                  $resultado = $conn->query($sql);
+
+                  // Recorrer los resultados y mostrar en la tabla
+                  while ($fila = $resultado->fetch_assoc()) {
+                     echo '<li><a href="arma.php?id=' . $fila['id'] . '"">'.$fila['nombre'].'</a>';
+                  }
+               ?>
+        </ul>
+        </li>
+        <li>
+            <?php 
+            session_start();
+
+            if (empty($_SESSION['usuario'])) {
+              echo '<a href="login.php">Login</a>';
+          } else {
+              echo '
+              <li class="dropdown"><a href="lista_configs.php">' . $_SESSION["usuario"] . '</a>
+                  <ul class="submenu">
+                      <li><a href=';
+          
+              $conn = new mysqli("localhost", "javi", "Proyecto_2023", "csconf");
+          
+              if ($conn->connect_error) {
+                  die("Error: " . $conn->connect_error);
+              }
+          
+              $sql = 'SELECT * FROM users where  id=' . $_SESSION["id"];
+          
+              $resultado = $conn->query($sql);
+          
+              if ($resultado->num_rows > 0) {
+                  while ($fila = $resultado->fetch_assoc()) {
+                      if (empty($fila["email"])) {
+                          echo "completa.php";
+                      } else {
+                          echo "userinfo.php";
+                      }
+                  }
+              }
+          
+              echo '>Ver perfil</a></li>
+                      <li><a href="logout.php">Cerrar sesión</a></li>
+                  </ul>
+              </li>';
+          }
+          ?>
+            </li>
+    </ul>
+    </nav>
+    </header>
+
 <body>
 
 <h1>INSERTA LOS DATOS DEL MODELO DE VISTA</h1>
 
-<form action="guardar_configuracion.php" method="POST" >
+<form action="" method="POST" >
 Nombre de la configuración:
-<input type="text" name="nombre" required><br>    <div class="row view-container">
+<input type="text" name="config_name" required><br>    
+<div class="row view-container">
+        <div class="col-lg-4 col-md-6 mb-4">
+            <h1>MOUSE</h1>
+            DPI <br> <input type="text" name="dpi">
+            <br>
+            Sensitivity <br>  <input type="text" name="sensitivity">
+            <br>
+            eDPI <br> <input type="text" name="edpi">
+            <br>
+            ZoomSensitivity <br> <input type="text" name="zoomsensitivity">
+            <br>
+            Hz <br> <input type="text" name="hz">
+            <br>
+            WindowsSensitivity <br> <input type="text" name="windowssensitivity">
+            <br>
+            RawInput <br> <input type="text" name="rawinput">
+            <br>
+            MouseAcceleration <br> <input type="text" name="mouseacceleration">
+        </div>
+
+        <div class="col-lg-4 col-md-6 mb-4">
+            <h1>CROSSHAIR</h1>
+            DrawOutline <br> <input type="text" name="drawoutline">
+            <br>
+            Alpha <br>  <input type="text" name="alpha">
+            <br>
+            Color <br> <input type="text" name="color">
+            <br>
+            Blue <br> <input type="text" name="blue">
+            <br>
+            Green <br> <input type="text" name="green">
+            <br>
+            Red <br> <input type="text" name="red">
+            <br>
+            Dot <br> <input type="text" name="dot">
+            <br>
+            Gap <br> <input type="text" name="gap">
+            <br>
+            Size <br> <input type="text" name="size">
+            <br>
+            Style <br> <input type="text" name="style">
+            <br>
+            Thickness <br> <input type="text" name="thickness">
+            <br>
+            SniperWidth <br> <input type="text" name="wniperwidth">
+        </div>
+
+
         <div class="col-lg-4 col-md-6 mb-4">
             <h1>VIEWMODEL</h1>
-            DPI <br> <input type="text" name="fov">
+            FOV <br> <input type="text" name="fov">
             <br>
-            Sensitivity <br>  <input type="text" name="offsetx">
+            OffsetX <br>  <input type="text" name="offsetx">
             <br>
-            eDPI <br> <input type="text" name="offsety">
+            OffsetY <br> <input type="text" name="offsety">
             <br>
-            ZoomSensitivity <br> <input type="text" name="offsetz">
+            OffsetZ <br> <input type="text" name="offsetz">
             <br>
-            Hz <br> <input type="text" name="presetpos">
+            PresetPos <br> <input type="text" name="presetpos">
             <br>
-            WindowsSensitivity <br> <input type="text" name="shiftleftamt">
+            ShiftLeftAmt <br> <input type="text" name="shiftleftamt">
             <br>
-            RawInput <br> <input type="text" name="shiftrightamt">
+            ShiftRightAmt <br> <input type="text" name="shiftrightamt">
             <br>
-            MouseAcceleration <br> <input type="text" name="recoil">
+            Recoil <br> <input type="text" name="recoil">
+            <br>
+            RightHand <br> <input type="text" name="righthand">
+
         </div>
         <div class="col-lg-4 col-md-6 mb-4">
-            <h1>VIEWMODEL</h1>
-            DPI <br> <input type="text" name="fov">
+            <h1>VIDEO SETTINGS</h1>
+            Resolution <br> <input type="text" name="resolution">
             <br>
-            Sensitivity <br>  <input type="text" name="offsetx">
+            AspectRatio <br>  <input type="text" name="aspectratio">
             <br>
-            eDPI <br> <input type="text" name="offsety">
+            ScalingMode <br> <input type="text" name="scalingmode">
             <br>
-            ZoomSensitivity <br> <input type="text" name="offsetz">
+            ColorMode <br> <input type="text" name="colormode">
             <br>
-            Hz <br> <input type="text" name="presetpos">
+            Brightness <br> <input type="text" name="brightness">
             <br>
-            WindowsSensitivity <br> <input type="text" name="shiftleftamt">
-            <br>
-            RawInput <br> <input type="text" name="shiftrightamt">
-            <br>
-            MouseAcceleration <br> <input type="text" name="recoil">
+            DisplayMode <br> <input type="text" name="displaymode">
         </div>
         <div class="col-lg-4 col-md-6 mb-4">
-            <h1>VIEWMODEL</h1>
-            DPI <br> <input type="text" name="fov">
+            <h1>ADVANCED VIDEO SETTINGS</h1>
+            globalShadowQuality <br>  <input type="text" name="globalshadowquality">
             <br>
-            Sensitivity <br>  <input type="text" name="offsetx">
+            modelTextureDetail <br> <input type="text" name="modeltexturedetail">
             <br>
-            eDPI <br> <input type="text" name="offsety">
+            textureStreaming <br> <input type="text" name="texturestreaming">
             <br>
-            ZoomSensitivity <br> <input type="text" name="offsetz">
+            effectDetail <br> <input type="text" name="effectdetail">
             <br>
-            Hz <br> <input type="text" name="presetpos">
+            shaderDetail <br> <input type="text" name="shaderdetail">
             <br>
-            WindowsSensitivity <br> <input type="text" name="shiftleftamt">
+            boostPlayerContrast <br> <input type="text" name="boostplayercontrast">
             <br>
-            RawInput <br> <input type="text" name="shiftrightamt">
+            multicoreRendering <br> <input type="text" name="multicorerendering">
             <br>
-            MouseAcceleration <br> <input type="text" name="recoil">
+            multisamplingAntiAliasingMode <br> <input type="text" name="multisamplingantialiasingmode">
+            <br>
+            fxaaAntiAliasing <br> <input type="text" name="fxaaantialiasing">
+            <br>
+            textureFilteringMode <br> <input type="text" name="texturefilteringmode">
+            <br>
+            waitForVerticalSync <br> <input type="text" name="waitforverticalsync">
+            <br>
+            motionBlur <br> <input type="text" name="motionblur">
+            <br>
+            tripleMonitorMode <br> <input type="text" name="triplemonitormode">
+            <br>
+            useUberShaders <br> <input type="text" name="useubershaders">
+
         </div>
-        <div class="col-lg-4 col-md-6 mb-4">
-            <h1>VIEWMODEL</h1>
-            DPI <br> <input type="text" name="fov">
-            <br>
-            Sensitivity <br>  <input type="text" name="offsetx">
-            <br>
-            eDPI <br> <input type="text" name="offsety">
-            <br>
-            ZoomSensitivity <br> <input type="text" name="offsetz">
-            <br>
-            Hz <br> <input type="text" name="presetpos">
-            <br>
-            WindowsSensitivity <br> <input type="text" name="shiftleftamt">
-            <br>
-            RawInput <br> <input type="text" name="shiftrightamt">
-            <br>
-            MouseAcceleration <br> <input type="text" name="recoil">
-        </div>
-        <div class="col-lg-4 col-md-6 mb-4">
-            <h1>VIEWMODEL</h1>
-            DPI <br> <input type="text" name="fov">
-            <br>
-            Sensitivity <br>  <input type="text" name="offsetx">
-            <br>
-            eDPI <br> <input type="text" name="offsety">
-            <br>
-            ZoomSensitivity <br> <input type="text" name="offsetz">
-            <br>
-            Hz <br> <input type="text" name="presetpos">
-            <br>
-            WindowsSensitivity <br> <input type="text" name="shiftleftamt">
-            <br>
-            RawInput <br> <input type="text" name="shiftrightamt">
-            <br>
-            MouseAcceleration <br> <input type="text" name="recoil">
-        </div>
-        <div class="col-lg-4 col-md-6 mb-4">
-            <h1>VIEWMODEL</h1>
-            DPI <br> <input type="text" name="fov">
-            <br>
-            Sensitivity <br>  <input type="text" name="offsetx">
-            <br>
-            eDPI <br> <input type="text" name="offsety">
-            <br>
-            ZoomSensitivity <br> <input type="text" name="offsetz">
-            <br>
-            Hz <br> <input type="text" name="presetpos">
-            <br>
-            WindowsSensitivity <br> <input type="text" name="shiftleftamt">
-            <br>
-            RawInput <br> <input type="text" name="shiftrightamt">
-            <br>
-            MouseAcceleration <br> <input type="text" name="recoil">
-        </div>
+
         
     </div>
     <br><br>
     <input type="submit" value="Crear" name="crear">
 
 </form>
-
+<?php
+        include 'controlador_configs.php'; 
+?>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
