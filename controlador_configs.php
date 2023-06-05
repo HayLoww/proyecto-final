@@ -8,9 +8,16 @@ if ($conn->connect_error) {
 
 // Verificar si los campos $_POST están vacíos
 if (!empty($_POST["crear"])) {
-    if (empty($_POST['config_name'])) {
-        echo "Por favor, ingrese un nombre de configuración.";
-    } else {
+    $camposVacios = false;
+
+    if (empty($_POST['config_name']) || empty($_POST['dpi']) || empty($_POST['sensitivity']) || empty($_POST['edpi']) || empty($_POST['zoomsensitivity']) || empty($_POST['hz']) || empty($_POST['windowssensitivity']) || empty($_POST['rawinput']) || empty($_POST['mouseacceleration']) || empty($_POST['drawoutline']) || empty($_POST['alpha']) || empty($_POST['color']) || empty($_POST['blue']) || empty($_POST['green']) || empty($_POST['red']) || empty($_POST['dot']) || empty($_POST['gap']) || empty($_POST['size']) || empty($_POST['style']) || empty($_POST['thickness']) || empty($_POST['wniperwidth']) || empty($_POST['fov']) || empty($_POST['offsetx']) || empty($_POST['offsety']) || empty($_POST['offsetz']) || empty($_POST['presetpos']) || empty($_POST['shiftleftamt']) || empty($_POST['shiftrightamt']) || empty($_POST['recoil']) || empty($_POST['righthand']) || empty($_POST['resolution']) || empty($_POST['aspectratio']) || empty($_POST['scalingmode']) || empty($_POST['colormode']) || empty($_POST['brightness']) || empty($_POST['displaymode']) || empty($_POST['globalshadowquality']) || empty($_POST['modeltexturedetail']) || empty($_POST['texturestreaming']) || empty($_POST['effectdetail']) || empty($_POST['shaderdetail']) || empty($_POST['boostplayercontrast']) || empty($_POST['multicorerendering']) || empty($_POST['multisamplingantialiasingmode']) || empty($_POST['fxaaantialiasing']) || empty($_POST['texturefilteringmode']) || empty($_POST['waitforverticalsync']) || empty($_POST['motionblur']) || empty($_POST['triplemonitormode']) || empty($_POST['useubershaders'])) {
+        $camposVacios = true;
+    }
+    
+    if ($camposVacios) {
+        echo "<h1  id='error'>Por favor, complete todos los campos.</h1>";
+    
+        } else {
         // Insertar el nombre de configuración en la tabla configurations
         $config_name = $_POST['config_name'];
         $sql = "INSERT INTO configurations (config_name, user_id)
@@ -92,7 +99,8 @@ if (!empty($_POST["crear"])) {
                     VALUES ('$config_name','$globalshadowquality', '$modeltexturedetail', '$texturestreaming', '$effectdetail', '$shaderdetail', '$boostplayercontrast', '$multicorerendering', '$multisamplingantialiasingmode', '$fxaaantialiasing', '$texturefilteringmode', '$waitforverticalsync', '$motionblur', '$triplemonitormode', '$useubershaders', '" . $_SESSION['id'] . "', '$config_id')";
             $conn->query($sql);
     
-            echo "Configuración guardada correctamente.";
+            echo '<meta http-equiv="refresh" content="5;url=lista_configs.php">';
+            echo '<h1 id="acierto">¡Datos insertados correctamente! Redirigiendo a la página de usuario...</h1>';
         } else {
             echo "Error: " . $sql . "<br>" . $conn->error;
         }

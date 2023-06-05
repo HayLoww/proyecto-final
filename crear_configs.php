@@ -23,9 +23,11 @@
     }
     
     div{
-        color:red;
-        text-shadow: 4px 4px 4px black;
         font-size:20px;
+        color: white;
+        text-shadow: 4px 4px 4px black;
+
+
     }
 
     input[type=text] {
@@ -55,7 +57,7 @@
     }
 
     input[type=submit]{
-        margin-top:30px;
+        margin-top:-30px;
         width: 12%;
         height: 40px;
         font-size: 105%;
@@ -87,6 +89,7 @@
         text-shadow: 4px 4px 4px black;
         margin-top:100px;
         font-size:60px;
+        margin-bottom:50px;
     }
 
     a{
@@ -104,6 +107,16 @@
     
     .view-container {
         margin-bottom: 20px;
+    }
+
+    #error{
+        color:red;
+        margin-top:-20px;
+    }
+
+    #acierto{
+        color:green;
+        margin-top:-20px;
     }
 
     </style>
@@ -194,15 +207,15 @@ Nombre de la configuración:
             <br>
             eDPI <br> <input type="text" name="edpi">
             <br>
-            ZoomSensitivity <br> <input type="text" name="zoomsensitivity">
+            Zoom Sensitivity <br> <input type="text" name="zoomsensitivity">
             <br>
             Hz <br> <input type="text" name="hz">
             <br>
-            WindowsSensitivity <br> <input type="text" name="windowssensitivity">
+            Windows Sensitivity <br> <input type="text" name="windowssensitivity">
             <br>
-            RawInput <br> <input type="text" name="rawinput">
+            Raw Input <br> <input type="text" name="rawinput">
             <br>
-            MouseAcceleration <br> <input type="text" name="mouseacceleration">
+            Mouse Acceleration <br> <input type="text" name="mouseacceleration">
         </div>
 
         <div class="col-lg-4 col-md-6 mb-4">
@@ -229,7 +242,7 @@ Nombre de la configuración:
             <br>
             Thickness <br> <input type="text" name="thickness">
             <br>
-            SniperWidth <br> <input type="text" name="wniperwidth">
+            Sniper Width <br> <input type="text" name="wniperwidth">
         </div>
 
 
@@ -237,17 +250,17 @@ Nombre de la configuración:
             <h1>VIEWMODEL</h1>
             FOV <br> <input type="text" name="fov">
             <br>
-            OffsetX <br>  <input type="text" name="offsetx">
+            Offset X <br>  <input type="text" name="offsetx">
             <br>
-            OffsetY <br> <input type="text" name="offsety">
+            Offset Y <br> <input type="text" name="offsety">
             <br>
-            OffsetZ <br> <input type="text" name="offsetz">
+            Offset Z <br> <input type="text" name="offsetz">
             <br>
             PresetPos <br> <input type="text" name="presetpos">
             <br>
-            ShiftLeftAmt <br> <input type="text" name="shiftleftamt">
+            Shift Left Amt <br> <input type="text" name="shiftleftamt">
             <br>
-            ShiftRightAmt <br> <input type="text" name="shiftrightamt">
+            Shift Right Amt <br> <input type="text" name="shiftrightamt">
             <br>
             Recoil <br> <input type="text" name="recoil">
             <br>
@@ -258,45 +271,45 @@ Nombre de la configuración:
             <h1>VIDEO SETTINGS</h1>
             Resolution <br> <input type="text" name="resolution">
             <br>
-            AspectRatio <br>  <input type="text" name="aspectratio">
+            Aspect Ratio <br>  <input type="text" name="aspectratio">
             <br>
-            ScalingMode <br> <input type="text" name="scalingmode">
+            Scaling Mode <br> <input type="text" name="scalingmode">
             <br>
-            ColorMode <br> <input type="text" name="colormode">
+            Color Mode <br> <input type="text" name="colormode">
             <br>
             Brightness <br> <input type="text" name="brightness">
             <br>
-            DisplayMode <br> <input type="text" name="displaymode">
+            Display Mode <br> <input type="text" name="displaymode">
         </div>
         <div class="col-lg-4 col-md-6 mb-4">
             <h1>ADVANCED VIDEO SETTINGS</h1>
-            globalShadowQuality <br>  <input type="text" name="globalshadowquality">
+            Global Shadow Quality <br>  <input type="text" name="globalshadowquality">
             <br>
-            modelTextureDetail <br> <input type="text" name="modeltexturedetail">
+            Model / Texture Detail <br> <input type="text" name="modeltexturedetail">
             <br>
-            textureStreaming <br> <input type="text" name="texturestreaming">
+            Texture Streaming <br> <input type="text" name="texturestreaming">
             <br>
-            effectDetail <br> <input type="text" name="effectdetail">
+            Effect Detail <br> <input type="text" name="effectdetail">
             <br>
-            shaderDetail <br> <input type="text" name="shaderdetail">
+            Shader Detail <br> <input type="text" name="shaderdetail">
             <br>
-            boostPlayerContrast <br> <input type="text" name="boostplayercontrast">
+            Boost Player Contrast <br> <input type="text" name="boostplayercontrast">
             <br>
-            multicoreRendering <br> <input type="text" name="multicorerendering">
+            Multicore Rendering <br> <input type="text" name="multicorerendering">
             <br>
-            multisamplingAntiAliasingMode <br> <input type="text" name="multisamplingantialiasingmode">
+            Multisampling Anti-Aliasing Mode <br> <input type="text" name="multisamplingantialiasingmode">
             <br>
-            fxaaAntiAliasing <br> <input type="text" name="fxaaantialiasing">
+            FXAA Anti-Aliasing <br> <input type="text" name="fxaaantialiasing">
             <br>
-            textureFilteringMode <br> <input type="text" name="texturefilteringmode">
+            Texture Filtering Mode <br> <input type="text" name="texturefilteringmode">
             <br>
-            waitForVerticalSync <br> <input type="text" name="waitforverticalsync">
+            Wait for Vertical Sync <br> <input type="text" name="waitforverticalsync">
             <br>
-            motionBlur <br> <input type="text" name="motionblur">
+            Motion Blur <br> <input type="text" name="motionblur">
             <br>
-            tripleMonitorMode <br> <input type="text" name="triplemonitormode">
+            Triple-Monitor Mode <br> <input type="text" name="triplemonitormode">
             <br>
-            useUberShaders <br> <input type="text" name="useubershaders">
+            Use Uber Shaders <br> <input type="text" name="useubershaders">
 
         </div>
 
