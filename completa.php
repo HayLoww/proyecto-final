@@ -118,7 +118,7 @@
     }
 
     h2{
-        color:red;
+        color:green;
         text-shadow: 4px 4px 4px black;
         font-size:20px;
         margin-top:40px;

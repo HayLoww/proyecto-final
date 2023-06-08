@@ -167,24 +167,27 @@ if ($conn->connect_error) {
     die("Error: " . $conn->connect_error);
 }
 
-$sql = "SELECT * FROM csconf.advuser where user_id=".$_SESSION["id"];
+$sql = "SELECT * FROM csconf.configurations where user_id=".$_SESSION["id"];
 $resultado = $conn->query($sql);
 
-if ($resultado->num_rows > 0) {
-    // Mostrar la lista de configuraciones
 
-    while ($fila = $resultado->fetch_assoc()) {
-        $nombre_configuracion = $fila['nombre_configuracion'];
-        $config_id = $fila['id'];
-        echo "<tr>";
-        echo "<td class='d-flex justify-content-between align-items-center'>";
-        echo "<span id='enlace'>";
-        echo "<a class='text-white text-decoration-none font-weight-bold' href='ver_configuracion.php?config_id=$config_id'>$nombre_configuracion</a>";
-        echo "</span>";
-        echo "<a id='borrar' class=' text-decoration-none' href='conf_borrar.php?id=" . $fila['id'] . "'>Borrar</a>";
-        echo "</td>";
-        echo "</tr>";
-    }
+if ($resultado->num_rows > 0) {
+   // Mostrar la lista de configuraciones
+
+
+   while ($fila = $resultado->fetch_assoc()) {
+       $nombre_configuracion = $fila['config_name'];
+       $config_id = $fila['config_id'];
+       echo "<tr>";
+       echo "<td class='d-flex justify-content-between align-items-center'>";
+       echo "<span id='enlace'>";
+       echo "<a class='text-white text-decoration-none font-weight-bold' href='ver_configuracion.php?config_id=$config_id'>$nombre_configuracion</a>";
+       echo "</span>";
+       echo "<a id='borrar' class=' text-decoration-none' href='conf_borrar.php?id=" . $fila['config_id'] . "'>Borrar</a>";
+       echo "</td>";
+       echo "</tr>";
+   }
+
 
 
 } else {

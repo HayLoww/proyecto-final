@@ -121,11 +121,12 @@
         font-size:60px;
     }
 
-    h2{
-        color:red;
+    h1{
+        color:green;
         text-shadow: 4px 4px 4px black;
-        font-size:20px;
-        margin-top:80px;
+        margin-bottom:100px;
+        font-size:40px;
+        margin-top:-50px;
     }
 
     </style>"
@@ -259,7 +260,7 @@
             $conn->query($sql);
             $conn->close();
             echo '<meta http-equiv="refresh" content="5;url=userinfo.php">';
-            echo '<h2>¡Datos actualizados correctamente! Redirigiendo a la págiusuario...</h2>';
+            echo '<h1>¡Datos actualizados correctamente! Redirigiendo a la página de usuario...</h1>';
             exit();
         }
     }

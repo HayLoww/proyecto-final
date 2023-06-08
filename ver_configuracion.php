@@ -1,6 +1,6 @@
 <html lang="es">
 <head>
-    <title> Listado de peludines</title>
+    <title> CSCONF</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="estilos.css">
    <script src="script.js"></script>
@@ -252,11 +252,11 @@
 
         if (isset($_GET['config_id'])) {
             $config_id = $_GET['config_id'];
-            $sql = "SELECT * FROM advuser WHERE id = $config_id";
+            $sql = "SELECT * FROM configurations WHERE config_id = $config_id";
             $resultado = $conn->query($sql);
             if ($resultado->num_rows > 0) {
                 while ($fila = $resultado->fetch_assoc()) {
-                    $nombre_configuracion = $fila['nombre_configuracion'];
+                    $nombre_configuracion = $fila['config_name'];
                     echo "<h1>" . $nombre_configuracion . "</h1>";
                 }
             }

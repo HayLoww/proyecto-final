@@ -134,7 +134,6 @@
       <div id="fotosarmas">
          <div class="tabla-armas">
             <?php
-            // Conexión a la base de datos
             $conn = new mysqli("localhost", "javi", "Proyecto_2023", "csconf");
             if ($conn->connect_error) {
                die("Error: " . $conn->connect_error);
@@ -144,7 +143,6 @@
             $sql = "SELECT * FROM armas";
             $resultado = $conn->query($sql);
 
-            // Recorrer los resultados y mostrar en la tabla
             while ($fila = $resultado->fetch_assoc()) {
                echo '<div class="arma">';
                echo '<a href="arma.php?id=' . $fila['id'] . '""><img src="' . $fila['image'] . '" alt="' . $fila['nombre'] . '"></a>';
@@ -154,7 +152,6 @@
                echo '</div>';
             }
 
-            // Cerrar conexión
             $conn->close();
             ?>
          </div>

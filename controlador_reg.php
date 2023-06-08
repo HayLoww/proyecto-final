@@ -23,7 +23,8 @@
                 $sql = "INSERT INTO users (nombre, password, fecha_reg) VALUES ('" . $usuario . "', '" . $contra . "', NOW())";
                 $conn->query($sql);
                 $conn->close();
-                header("location: login.php");
+                echo '<meta http-equiv="refresh" content="5;url=login.php">';
+                echo '<h2>¡Registro completado exitosamente! Redirigiendo a la página de login...</h2>';
                 exit();
             }
         }

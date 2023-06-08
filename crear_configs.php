@@ -1,6 +1,6 @@
 <html lang="es">
 <head>
-    <title> Listado de peludines</title>
+    <title> CSOCNF</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="estilos.css">
    <script src="script.js"></script>
@@ -26,8 +26,8 @@
         font-size:20px;
         color: white;
         text-shadow: 4px 4px 4px black;
-
-
+        text-align:center;
+        justify-content: center;
     }
 
     input[type=text] {
@@ -193,124 +193,350 @@
 
 <body>
 
-<h1>INSERTA LOS DATOS DEL MODELO DE VISTA</h1>
+<h1>INSERTA LOS DATOS DE LA CONFIGURACION</h1>
 
 <form action="" method="POST" >
 Nombre de la configuración:
 <input type="text" name="config_name" required><br>    
-<div class="row view-container">
-        <div class="col-lg-4 col-md-6 mb-4">
-            <h1>MOUSE</h1>
-            DPI <br> <input type="text" name="dpi">
-            <br>
-            Sensitivity <br>  <input type="text" name="sensitivity">
-            <br>
-            eDPI <br> <input type="text" name="edpi">
-            <br>
-            Zoom Sensitivity <br> <input type="text" name="zoomsensitivity">
-            <br>
-            Hz <br> <input type="text" name="hz">
-            <br>
-            Windows Sensitivity <br> <input type="text" name="windowssensitivity">
-            <br>
-            Raw Input <br> <input type="text" name="rawinput">
-            <br>
-            Mouse Acceleration <br> <input type="text" name="mouseacceleration">
+<div class="row">
+                <div class="col-lg-12">
+                    <h1>MOUSE</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="input-container">
+                        <label for="dpi">DPI:</label>
+                    </div>
+                    <input type="text" name="dpi" id="dpi">
+                </div>
+                <div class="col-lg-3">
+                    <div class="input-container">
+                        <label for="sensitivity">Sensitivity:</label>
+                    </div>
+                    <input type="text" name="sensitivity" id="sensitivity">
+                </div>
+                <div class="col-lg-3">
+                    <div class="input-container">
+                        <label for="edpi">eDPI:</label>
+                    </div>
+                    <input type="text" name="edpi" id="edpi">
+                </div>
+                <div class="col-lg-3">
+                    <div class="input-container">
+                        <label for="zoomsensitivity">Zoom Sensitivity:</label>
+                    </div>
+                    <input type="text" name="zoomsensitivity" id="zoomsensitivity">
+                </div>
+                <div class="col-lg-3">
+                    <div class="input-container">
+                        <label for="hz">Hz:</label>
+                    </div>
+                    <input type="text" name="hz" id="hz">
+                </div>
+                <div class="col-lg-3">
+                    <div class="input-container">
+                        <label for="windowssensitivity">Windows Sensitivity:</label>
+                    </div>
+                    <input type="text" name="windowssensitivity" id="windowssensitivity">
+                </div>
+                <div class="col-lg-3">
+                    <div class="input-container">
+                        <label for="rawinput">Raw Input:</label>
+                    </div>
+                    <input type="text" name="rawinput" id="rawinput">
+                </div>
+                <div class="col-lg-3">
+                    <div class="input-container">
+                        <label for="mouseacceleration">Mouse Acceleration:</label>
+                    </div>
+                    <input type="text" name="mouseacceleration" id="mouseacceleration">
+                </div>
+            </div>
         </div>
 
-        <div class="col-lg-4 col-md-6 mb-4">
-            <h1>CROSSHAIR</h1>
-            DrawOutline <br> <input type="text" name="drawoutline">
-            <br>
-            Alpha <br>  <input type="text" name="alpha">
-            <br>
-            Color <br> <input type="text" name="color">
-            <br>
-            Blue <br> <input type="text" name="blue">
-            <br>
-            Green <br> <input type="text" name="green">
-            <br>
-            Red <br> <input type="text" name="red">
-            <br>
-            Dot <br> <input type="text" name="dot">
-            <br>
-            Gap <br> <input type="text" name="gap">
-            <br>
-            Size <br> <input type="text" name="size">
-            <br>
-            Style <br> <input type="text" name="style">
-            <br>
-            Thickness <br> <input type="text" name="thickness">
-            <br>
-            Sniper Width <br> <input type="text" name="wniperwidth">
+        <div class="row">
+                <div class="col-lg-12">
+                    <h1>CROSSHAIR</h1>
+                </div>
+            </div>
+        <div class="row">
+                <div class="col-lg-3">
+                    <div class="input-container">
+                        <label for="drawoutline">DrawOutline:</label>
+                    </div>
+                    <input type="text" name="drawoutline" id="drawoutline">
+                </div>
+                <div class="col-lg-3">
+                    <div class="input-container">
+                        <label for="alpha">Alpha:</label>
+                    </div>
+                    <input type="text" name="alpha" id="alpha">
+                </div>
+                <div class="col-lg-3">
+                    <div class="input-container">
+                        <label for="color">Color:</label>
+                    </div>
+                    <input type="text" name="color" id="color">
+                </div>
+                <div class="col-lg-3">
+                    <div class="input-container">
+                        <label for="blue">Blue:</label>
+                    </div>
+                    <input type="text" name="blue" id="blue">
+                </div>
+                <div class="col-lg-3">
+                    <div class="input-container">
+                        <label for="green">Green:</label>
+                    </div>
+                    <input type="text" name="green" id="green">
+                </div>
+                <div class="col-lg-3">
+                    <div class="input-container">
+                        <label for="red">Red:</label>
+                    </div>
+                    <input type="text" name="red" id="red">
+                </div>
+                <div class="col-lg-3">
+                    <div class="input-container">
+                        <label for="dot">Dot:</label>
+                    </div>
+                    <input type="text" name="dot" id="dot">
+                </div>
+                <div class="col-lg-3">
+                    <div class="input-container">
+                        <label for="gap">Gap:</label>
+                    </div>
+                    <input type="text" name="gap" id="gap">
+                </div>
+                <div class="col-lg-3">
+                    <div class="input-container">
+                        <label for="size">Size:</label>
+                    </div>
+                    <input type="text" name="size" id="size">
+                </div>
+                <div class="col-lg-3">
+                    <div class="input-container">
+                        <label for="style">Style:</label>
+                    </div>
+                    <input type="text" name="style" id="style">
+                </div>
+                <div class="col-lg-3">
+                    <div class="input-container">
+                        <label for="thickness">Thickness:</label>
+                    </div>
+                    <input type="text" name="thickness" id="thickness">
+                </div>
+                <div class="col-lg-3">
+                    <div class="input-container">
+                        <label for="wniperwidth">SniperWidth:</label>
+                    </div>
+                    <input type="text" name="wniperwidth" id="wniperwidth">
+                </div>
+
+            </div>
         </div>
 
-
-        <div class="col-lg-4 col-md-6 mb-4">
-            <h1>VIEWMODEL</h1>
-            FOV <br> <input type="text" name="fov">
-            <br>
-            Offset X <br>  <input type="text" name="offsetx">
-            <br>
-            Offset Y <br> <input type="text" name="offsety">
-            <br>
-            Offset Z <br> <input type="text" name="offsetz">
-            <br>
-            PresetPos <br> <input type="text" name="presetpos">
-            <br>
-            Shift Left Amt <br> <input type="text" name="shiftleftamt">
-            <br>
-            Shift Right Amt <br> <input type="text" name="shiftrightamt">
-            <br>
-            Recoil <br> <input type="text" name="recoil">
-            <br>
-            RightHand <br> <input type="text" name="righthand">
-
+        <div class="row">
+                <div class="col-lg-12">
+                    <h1>VIEWMODEL</h1>
+                </div>
+            </div>
+        <div class="row">
+                <div class="col-lg-3">
+                    <div class="input-container">
+                        <label for="fov">Fov:</label>
+                    </div>
+                    <input type="text" name="fov" id="fov">
+                </div>
+                <div class="col-lg-3">
+                    <div class="input-container">
+                        <label for="offsetx">Offset X:</label>
+                    </div>
+                    <input type="text" name="offsetx" id="offsetx">
+                </div>
+                <div class="col-lg-3">
+                    <div class="input-container">
+                        <label for="offsety">Offset Y:</label>
+                    </div>
+                    <input type="text" name="offsety" id="offsety">
+                </div>
+                <div class="col-lg-3">
+                    <div class="input-container">
+                        <label for="offsetz">OLffset Z:</label>
+                    </div>
+                    <input type="text" name="offsetz" id="offsetz">
+                </div>
+                <div class="col-lg-3">
+                    <div class="input-container">
+                        <label for="presetpos">PresetPos:</label>
+                    </div>
+                    <input type="text" name="presetpos" id="presetpos">
+                </div>
+                <div class="col-lg-3">
+                    <div class="input-container">
+                        <label for="shiftleftamt">Shift Left Amt:</label>
+                    </div>
+                    <input type="text" name="shiftleftamt" id="shiftleftamt">
+                </div>
+                <div class="col-lg-3">
+                    <div class="input-container">
+                        <label for="shiftrightamt">Shift Right Amt:</label>
+                    </div>
+                    <input type="text" name="shiftrightamt" id="shiftrightamt">
+                </div>
+                <div class="col-lg-3">
+                    <div class="input-container">
+                        <label for="recoil">Recoil:</label>
+                    </div>
+                    <input type="text" name="recoil" id="recoil">
+                </div>
+                <div class="col-lg-3">
+                    <div class="input-container">
+                        <label for="righthand">RightHand:</label>
+                    </div>
+                    <input type="text" name="righthand" id="righthand">
+                </div>
+            </div>
         </div>
-        <div class="col-lg-4 col-md-6 mb-4">
-            <h1>VIDEO SETTINGS</h1>
-            Resolution <br> <input type="text" name="resolution">
-            <br>
-            Aspect Ratio <br>  <input type="text" name="aspectratio">
-            <br>
-            Scaling Mode <br> <input type="text" name="scalingmode">
-            <br>
-            Color Mode <br> <input type="text" name="colormode">
-            <br>
-            Brightness <br> <input type="text" name="brightness">
-            <br>
-            Display Mode <br> <input type="text" name="displaymode">
-        </div>
-        <div class="col-lg-4 col-md-6 mb-4">
-            <h1>ADVANCED VIDEO SETTINGS</h1>
-            Global Shadow Quality <br>  <input type="text" name="globalshadowquality">
-            <br>
-            Model / Texture Detail <br> <input type="text" name="modeltexturedetail">
-            <br>
-            Texture Streaming <br> <input type="text" name="texturestreaming">
-            <br>
-            Effect Detail <br> <input type="text" name="effectdetail">
-            <br>
-            Shader Detail <br> <input type="text" name="shaderdetail">
-            <br>
-            Boost Player Contrast <br> <input type="text" name="boostplayercontrast">
-            <br>
-            Multicore Rendering <br> <input type="text" name="multicorerendering">
-            <br>
-            Multisampling Anti-Aliasing Mode <br> <input type="text" name="multisamplingantialiasingmode">
-            <br>
-            FXAA Anti-Aliasing <br> <input type="text" name="fxaaantialiasing">
-            <br>
-            Texture Filtering Mode <br> <input type="text" name="texturefilteringmode">
-            <br>
-            Wait for Vertical Sync <br> <input type="text" name="waitforverticalsync">
-            <br>
-            Motion Blur <br> <input type="text" name="motionblur">
-            <br>
-            Triple-Monitor Mode <br> <input type="text" name="triplemonitormode">
-            <br>
-            Use Uber Shaders <br> <input type="text" name="useubershaders">
 
+        <div class="row">
+                <div class="col-lg-12">
+                    <h1>VIDEO SETTINGS</h1>
+                </div>
+            </div>
+        <div class="row">
+                <div class="col-lg-3">
+                    <div class="input-container">
+                        <label for="resolution">Resolution:</label>
+                    </div>
+                    <input type="text" name="resolution" id="resolution">
+                </div>
+                <div class="col-lg-3">
+                    <div class="input-container">
+                        <label for="aspectratio">Aspect Ratio:</label>
+                    </div>
+                    <input type="text" name="aspectratio" id="aspectratio">
+                </div>
+                <div class="col-lg-3">
+                    <div class="input-container">
+                        <label for="scalingmode">Scaling Mode:</label>
+                    </div>
+                    <input type="text" name="scalingmode" id="scalingmode">
+                </div>
+                <div class="col-lg-3">
+                    <div class="input-container">
+                        <label for="colormode">Color Mode:</label>
+                    </div>
+                    <input type="text" name="colormode" id="colormode">
+                </div>
+                <div class="col-lg-3">
+                    <div class="input-container">
+                        <label for="brightness">Brightness:</label>
+                    </div>
+                    <input type="text" name="brightness" id="brightness">
+                </div>
+                <div class="col-lg-3">
+                    <div class="input-container">
+                        <label for="displaymode">Display Mode:</label>
+                    </div>
+                    <input type="text" name="displaymode" id="displaymode">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+                <div class="col-lg-12">
+                    <h1>ADVANCED VIDEO SETTINGS</h1>
+                </div>
+            </div>
+        <div class="row">
+                <div class="col-lg-3">
+                    <div class="input-container">
+                        <label for="globalshadowquality">Global Shadow Quality:</label>
+                    </div>
+                    <input type="text" name="globalshadowquality" id="globalshadowquality">
+                </div>
+                <div class="col-lg-3">
+                    <div class="input-container">
+                        <label for="modeltexturedetail">Model / Texture Detail:</label>
+                    </div>
+                    <input type="text" name="modeltexturedetail" id="modeltexturedetail">
+                </div>
+                <div class="col-lg-3">
+                    <div class="input-container">
+                        <label for="texturestreaming">Texture Streaming:</label>
+                    </div>
+                    <input type="text" name="texturestreaming" id="texturestreaming">
+                </div>
+                <div class="col-lg-3">
+                    <div class="input-container">
+                        <label for="effectdetail">Effect Detail:</label>
+                    </div>
+                    <input type="text" name="effectdetail" id="effectdetail">
+                </div>
+                <div class="col-lg-3">
+                    <div class="input-container">
+                        <label for="shaderdetail">Shader Detail:</label>
+                    </div>
+                    <input type="text" name="shaderdetail" id="shaderdetail">
+                </div>
+                <div class="col-lg-3">
+                    <div class="input-container">
+                        <label for="boostplayercontrast">Boost Player Contrast:</label>
+                    </div>
+                    <input type="text" name="boostplayercontrast" id="boostplayercontrast">
+                </div>
+                <div class="col-lg-3">
+                    <div class="input-container">
+                        <label for="multicorerendering">Multicore Rendering:</label>
+                    </div>
+                    <input type="text" name="multicorerendering" id="multicorerendering">
+                </div>
+                <div class="col-lg-3">
+                    <div class="input-container">
+                        <label for="multisamplingantialiasingmode">Multisampling Anti-Aliasing Mode:</label>
+                    </div>
+                    <input type="text" name="multisamplingantialiasingmode" id="multisamplingantialiasingmode">
+                </div>
+                <div class="col-lg-3">
+                    <div class="input-container">
+                        <label for="fxaaantialiasing">FXAA Anti-Aliasing:</label>
+                    </div>
+                    <input type="text" name="fxaaantialiasing" id="fxaaantialiasing">
+                </div>
+                <div class="col-lg-3">
+                    <div class="input-container">
+                        <label for="texturefilteringmode">Texture Filtering Mode:</label>
+                    </div>
+                    <input type="text" name="texturefilteringmode" id="texturefilteringmode">
+                </div>
+                <div class="col-lg-3">
+                    <div class="input-container">
+                        <label for="waitforverticalsync">Wait for Vertical Sync:</label>
+                    </div>
+                    <input type="text" name="waitforverticalsync" id="waitforverticalsync">
+                </div>
+                <div class="col-lg-3">
+                    <div class="input-container">
+                        <label for="motionblur">Motion Blur:</label>
+                    </div>
+                    <input type="text" name="motionblur" id="motionblur">
+                </div>
+                <div class="col-lg-3">
+                    <div class="input-container">
+                        <label for="triplemonitormode">Triple-Monitor Mode:</label>
+                    </div>
+                    <input type="text" name="triplemonitormode" id="triplemonitormode">
+                </div>
+                <div class="col-lg-3">
+                    <div class="input-container">
+                        <label for="useubershaders">Use Uber Shaders:</label>
+                    </div>
+                    <input type="text" name="useubershaders" id="useubershaders">
+                </div>
+
+            </div>
         </div>
 
         

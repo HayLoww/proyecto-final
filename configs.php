@@ -85,49 +85,49 @@
         </div>
     </div>
 
-    <?php
-$conn = new mysqli("localhost", "javi", "Proyecto_2023", "csconf");
+<?php
+    $conn = new mysqli("localhost", "javi", "Proyecto_2023", "csconf");
 
-if ($conn->connect_error) {
-  die("Error: " . $conn->connect_error);
-}
-
-$sql = "SELECT * FROM profesionals";
-$resultado = $conn->query($sql);
-
-if ($resultado->num_rows > 0) {
-  $contador = 0;
-  while ($fila = $resultado->fetch_assoc()) {
-    if ($contador % 3 === 0) {
-      if ($contador > 0) {
-        echo '</div>'; // Cierre del grupo anterior
-      }
-      echo '<div class="card-group">'; // Apertura de nuevo grupo
+    if ($conn->connect_error) {
+    die("Error: " . $conn->connect_error);
     }
 
-    echo '<div class="mw-100">
-        <div class="card">
-        <div class="face front">
-            <img src='.$fila["image"].' alt="">
-            <h3>'.$fila["nombre"].'</h3>
-        </div>
-        <div class="face back">
-            <h3>'.$fila["nombre"].'</h3>
-            <p>'.$fila["texto"].'</p>
-            <div class="link">
-                <a href=pros.php?id='.$fila["pros_id"].'>Details</a>
+    $sql = "SELECT * FROM profesionals";
+    $resultado = $conn->query($sql);
+
+    if ($resultado->num_rows > 0) {
+    $contador = 0;
+    while ($fila = $resultado->fetch_assoc()) {
+        if ($contador % 3 === 0) {
+        if ($contador > 0) {
+            echo '</div>'; // Cierre del grupo anterior
+        }
+        echo '<div class="card-group">'; // Apertura de nuevo grupo
+        }
+
+        echo '<div class="mw-100">
+            <div class="card">
+            <div class="face front">
+                <img src='.$fila["image"].' alt="">
+                <h3>'.$fila["nombre"].'</h3>
             </div>
-        </div>
-        </div>
-      </div>';
+            <div class="face back">
+                <h3>'.$fila["nombre"].'</h3>
+                <p>'.$fila["texto"].'</p>
+                <div class="link">
+                    <a href=pros.php?id='.$fila["pros_id"].'>Details</a>
+                </div>
+            </div>
+            </div>
+        </div>';
 
-    $contador++;
-  }
+        $contador++;
+    }
 
-  echo '</div>'; // Cierre del último grupo
-}
+    echo '</div>'; // Cierre del último grupo
+    }
 
-$conn->close();
+    $conn->close();
 ?>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 
