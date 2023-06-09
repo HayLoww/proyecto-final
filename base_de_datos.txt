@@ -1,0 +1,529 @@
+--TABLA PROFESIONALS:
+
+CREATE TABLE IF NOT EXISTS profesionals (
+pros_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+nombre varchar(255) not null unique,
+texto varchar(10000) not null unique,
+image blob NOT NULL
+);
+
+SELECT * FROM csconf.profesionals;
+
+-- S1mple
+insert into profesionals(nombre, texto, image) VALUES ("S1mple", "Oleksandr “s1mple“ Kostyliev nació el 2 de octubre de 1997 y actualmente juega para Natus Vincere como AWPer. s1mple está considerado por muchos como el mejor jugador de CS:GO de todos los tiempos, una afirmación respaldada por sus numerosos logros y trofeos. Sus equipos han ganado un Major, un Intel Grand Slam y muchos torneos de primer nivel, mientras que sus galardones personales incluyen más de 20 medallas de MVP de HLTV y el puesto número uno en las listas de “mejor jugador del año“ de HLTV. Fue subcampeón en 2019 y 2020. s1mple ha jugado para muchos equipos, incluidos Liquid, FlipSid3 y HellRaisers, pero ha ganado la mayoría de los torneos con Natus Vincere, donde se unió en agosto de 2016.", "imagenes/S1mple.jpg");
+-- m0NESY
+insert into profesionals(nombre, texto,image) VALUES ("m0NESY", "Ilya “m0NESY“ Osipov es un jugador profesional ruso de Counter-Strike: Global Offensive. Actualmente juega para G2 Esports como AWPer. Nacido el 1 de mayo de 2005, está considerado uno de los mayores talentos del juego. Fue invitado a jugar en FPL (la liga PUG más alta de FACEIT, donde los profesionales juegan partidas de recogida) con sólo 14 años.", "imagenes/monesy.jpg");
+-- Xantares
+insert into profesionals(nombre, texto, image) VALUES ("XANTARES", "Can “XANTARES“ Dörtkardeş es un jugador profesional turco de Counter-Strike: Global Offensive, y actualmente juega para Eternal Fire como rifler. XANTARES es un jugador muy popular, en parte debido al hecho de que lleva el nombre de “XANTARES peek“. Se trata de una forma de espiar en la que el jugador espía a lo ancho (sobrepasando así el ángulo que pueda tener el enemigo) y luego dispara al enemigo casi instantáneamente gracias a una colocación casi perfecta de la retícula.", "imagenes/xantares.jpg");
+-- NiKo
+insert into profesionals(nombre, texto, image) VALUES ("NiKo", "Nikola “NiKo“ Kovač nació el 16 de febrero de 1997 y actualmente juega para G2 Esports como rifle. NiKo está considerado por muchos como uno de los mejores jugadores de CS:GO, con unas estadísticas fantásticas y conocido, entre otras cosas, por sus jugadas de Deagle. Ha ganado varios premios MVP y ha estado a punto de ganar el premio al mejor jugador del año de HLTV (quedó tercero en 2021 y 2018, y segundo en 2017).
+
+Su primo, Nemanja “huNter-“ Kovač, también es jugador profesional de CS:GO.", "imagenes/NiKo.jpg");
+-- shroud
+insert into profesionals(nombre, texto, image) VALUES ("shroud", "Michael “shroud“ Grzesiek es uno de los streamers más famosos del mundo.
+
+Antes de convertirse en streamer a tiempo completo, jugó en la división de CS:GO de Cloud 9, logrando numerosas victorias en torneos y consolidándose como uno de los mejores de NA. En abril de 2018, anunció que se retiraría formalmente y abandonó Cloud 9, donde había sido fichado anteriormente como streamer tras dejar el roster activo.
+
+Se unió brevemente al roster profesional VALORANT de Sentinels en el verano de 2022 para jugar en LCQ.", "imagenes/Shroud.jpg");
+-- KennyS
+insert into profesionals(nombre, texto, image) VALUES ("KennyS", "Kenny “kennyS“ Schrub es un jugador profesional de Counter-Strike: Global Offensive y actualmente creador de contenidos para Falcons Esports.
+
+Durante las primeras etapas de su carrera, KennyS fue ampliamente considerado como uno de los mejores y más entretenidos jugadores de la escena profesional gracias a su agresivo estilo de AWPing. El “nerfeo AWP“ (que redujo la capacidad de la AWP para ser utilizada como arma agresiva) hizo que su rendimiento decayera un poco, ya que al principio le costó ajustar su estilo de juego.
+
+Es uno de los jugadores de CS:GO más condecorados y con más logros de todos los tiempos, ya que ganó un Major y fue el MVP de dicho Major en Dreamhack Cluj-Napoca 2015 con EnvyUs. Ha ganado múltiples torneos de primer nivel, así como muchos premios MVP personales.", "imagenes/kennys.jpg");
+
+
+--TABLA MOUSE:
+
+CREATE TABLE IF NOT EXISTS mouse (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    DPI INT NOT NULL,
+    Sensitivity FLOAT NOT NULL,
+    eDPI INT NOT NULL,
+    ZoomSensitivity INT NOT NULL,
+    Hz INT NOT NULL,
+    WindowsSensitivity INT NOT NULL,
+    RawInput INT NOT NULL,
+    MouseAcceleration INT NOT NULL,
+	pros_id INT,
+    FOREIGN KEY (pros_id) REFERENCES profesionals(pros_id)
+
+);
+
+SELECT * FROM csconf.mouse;
+
+
+-- S1mple
+insert into mouse (dpi, sensitivity, edpi, ZoomSensitivity, Hz, WindowsSensitivity, RawInput, MouseAcceleration,pros_id)  
+values (400, 2 , 800, 1, 1000, 6, 1, 0,1);
+-- m0NESY
+insert into mouse (dpi, sensitivity, edpi, ZoomSensitivity, Hz, WindowsSensitivity, RawInput, MouseAcceleration,pros_id)  
+values (400, 3.09 , 1236, 1, 1000, 6, 1, 0,2);
+-- Xantares
+insert into mouse (dpi, sensitivity, edpi, ZoomSensitivity, Hz, WindowsSensitivity, RawInput, MouseAcceleration,pros_id)  
+values ("400", "2" , "800", "1.1", "1000", "6", "1", "1.05","3");
+-- NiKo
+insert into mouse (dpi, sensitivity, edpi, ZoomSensitivity, Hz, WindowsSensitivity, RawInput, MouseAcceleration,pros_id)  
+values ("400", "1.52" , "608", "0.9", "1000", "6", "1", "0","4");
+-- shroud
+insert into mouse (dpi, sensitivity, edpi, ZoomSensitivity, Hz, WindowsSensitivity, RawInput, MouseAcceleration,pros_id)  
+values ("400", "2.4" , "960", "1", "1000", "6", "1", "0","5");
+-- Kennys
+insert into mouse (dpi, sensitivity, edpi, ZoomSensitivity, Hz, WindowsSensitivity, RawInput, MouseAcceleration,pros_id)  
+values ("400", "2.2" , "880", "1", "1000", "6", "1", "0","6");
+
+
+--TABLA CROSSHAIR:
+
+CREATE TABLE IF NOT EXISTS crosshair (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    DrawOutline INT NOT NULL,
+    Alpha INT NOT NULL,
+    Color INT NOT NULL,
+    Blue INT NOT NULL,
+    Green INT NOT NULL,
+    Red INT NOT NULL,
+    Dot INT NOT NULL,
+    Gap INT NOT NULL,
+    Size INT NOT NULL,
+    Style INT NOT NULL,
+    Thickness INT NOT NULL,
+    SniperWidth INT NOT NULL,
+    pros_id INT,
+    FOREIGN KEY (pros_id) REFERENCES profesionals(pros_id)
+);
+
+-- S1mple
+INSERT INTO crosshair (DrawOutline, Alpha, Color, Blue, Green, Red, Dot, Gap, Size, Style, Thickness, SniperWidth, pros_id) 
+VALUES (0, 255, 4, 0, 0, 255, 1, -3, 1, 5, 1, 1,1);
+-- m0NESY
+INSERT INTO crosshair (DrawOutline, Alpha, Color, Blue, Green, Red, Dot, Gap, Size, Style, Thickness, SniperWidth,pros_id) 
+VALUES (0, 253, 2, 255, 255, 255, 0, -3, 2, 4, 0, 1,2);
+-- Xantares
+INSERT INTO crosshair (DrawOutline, Alpha, Color, Blue, Green, Red, Dot, Gap, Size, Style, Thickness, SniperWidth,pros_id) 
+VALUES (0, 255, 1, 50, 250, 50, 0, 0, 3, 4, 0.5, 1,3);
+-- NiKo
+INSERT INTO crosshair (DrawOutline, Alpha, Color, Blue, Green, Red, Dot, Gap, Size, Style, Thickness, SniperWidth,pros_id) 
+VALUES (0, 255, 5, 255, 255, 255, 0, -3, 1, 5, 1, 1,4);
+-- shroud
+INSERT INTO crosshair (DrawOutline, Alpha, Color, Blue, Green, Red, Dot, Gap, Size, Style, Thickness, SniperWidth,pros_id) 
+VALUES (1, 255, 3, 250, 250, 250, 0, -2, 5, 1, 1.5, 2,5);
+-- KennyS
+INSERT INTO crosshair (DrawOutline, Alpha, Color, Blue, Green, Red, Dot, Gap, Size, Style, Thickness, SniperWidth,pros_id) 
+VALUES (0, 200, 1, 50, 250, 50, 0, -3, 2, 4, 0, 1,6);
+
+SELECT * FROM csconf.crosshair;
+
+
+--TABLA VIEWMODEL:
+
+CREATE TABLE IF NOT EXISTS viewmodel (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    FOV INT NOT NULL,
+    OffsetX FLOAT NOT NULL,
+    OffsetY FLOAT NOT NULL,
+    OffsetZ FLOAT NOT NULL,
+    PresetPos INT NOT NULL,
+    ShiftLeftAmt FLOAT NOT NULL,
+    ShiftRightAmt FLOAT NOT NULL,
+    Recoil INT NOT NULL,
+    RightHand INT NOT NULL,
+    pros_id INT,
+    FOREIGN KEY (pros_id) REFERENCES profesionals(pros_id)
+);
+
+-- S1mple
+INSERT INTO viewmodel (FOV, OffsetX, OffsetY, OffsetZ, Presetpos, ShiftLeftAmt, ShiftRightAmt, Recoil, Righthand, pros_id)
+VALUES (68, 2.5, 0, -1.5, 3, 1.5, 0.75, 0, 1,1);
+-- m0NESY
+INSERT INTO viewmodel (FOV, OffsetX, OffsetY, OffsetZ, Presetpos, ShiftLeftAmt, ShiftRightAmt, Recoil, Righthand, pros_id)
+VALUES (68, 2.5, 0, -1.5, 3, 1.5, 0.75, 0, 1,2);
+-- Xantares
+INSERT INTO viewmodel (FOV, OffsetX, OffsetY, OffsetZ, Presetpos, ShiftLeftAmt, ShiftRightAmt, Recoil, Righthand, pros_id)
+VALUES (60, 1, 1, -1, 1, 1.5, 0.75, 0, 1,3);
+-- NiKo
+INSERT INTO viewmodel (FOV, OffsetX, OffsetY, OffsetZ, Presetpos, ShiftLeftAmt, ShiftRightAmt, Recoil, Righthand, pros_id)
+VALUES (68, 2.5, 0, -"-1.5", 3, 1.5, 0.75, 0, 1,4);
+-- shroud
+INSERT INTO viewmodel (FOV, OffsetX, OffsetY, OffsetZ, Presetpos, ShiftLeftAmt, ShiftRightAmt, Recoil, Righthand, pros_id)
+VALUES (68, 2.5, 1, -"-1.5", 3, 0, 0, 0, 1,5);
+-- KennyS
+INSERT INTO viewmodel (FOV, OffsetX, OffsetY, OffsetZ, Presetpos, ShiftLeftAmt, ShiftRightAmt, Recoil, Righthand, pros_id)
+VALUES (68, 2, 2, -"-2", 0, 0.5, 0.25, 1, 0,6);
+
+
+SELECT * FROM csconf.viewmodel;
+
+--TABLA VIDEO:
+
+CREATE TABLE IF NOT EXISTS video (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    Resolution VARCHAR(45) NOT NULL,
+    AspectRatio VARCHAR(45) NOT NULL,
+    ScalingMode VARCHAR(45) NOT NULL,
+    ColorMode VARCHAR(45) NOT NULL,
+    Brightness VARCHAR(45) NOT NULL,
+    DisplayMode VARCHAR(45) NOT NULL,
+    pros_id INT,
+    FOREIGN KEY (pros_id) REFERENCES profesionals(pros_id)
+);
+
+-- S1mple
+INSERT INTO video (Resolution, AspectRatio, ScalingMode, ColorMode, Brightness, DisplayMode, pros_id) 
+VALUES ('1280x960', '4:3', 'Stretched', 'Computer Monitor', '130%', 'Fullscreen',1);
+-- m0NESY
+INSERT INTO video (Resolution, AspectRatio, ScalingMode, ColorMode, Brightness, DisplayMode, pros_id) 
+VALUES ('1280x960', '4:3', 'Stretched', 'Computer Monitor', '110%', 'Fullscreen',2);
+-- Xantares
+INSERT INTO video (Resolution, AspectRatio, ScalingMode, ColorMode, Brightness, DisplayMode, pros_id) 
+VALUES ('1024x768', '4:3', 'Stretched', 'Computer Monitor', '110%', 'Fullscreen',3);
+-- NiKo
+INSERT INTO video (Resolution, AspectRatio, ScalingMode, ColorMode, Brightness, DisplayMode, pros_id) 
+VALUES ('1280x960', '4:3', 'Stretched', 'Computer Monitor', '90%', 'Fullscreen',4);
+-- shroud
+INSERT INTO video (Resolution, AspectRatio, ScalingMode, ColorMode, Brightness, DisplayMode, pros_id) 
+VALUES ('2560x1440', '16:9', 'Native', 'Computer Monitor', '100%', 'Fullscreen',5);
+-- KennyS
+INSERT INTO video (Resolution, AspectRatio, ScalingMode, ColorMode, Brightness, DisplayMode, pros_id) 
+VALUES ('1024x768', '4:3', 'Black Bars', 'Computer Monitor', '80%', 'Fullscreen',6);
+
+SELECT * FROM csconf.video;
+
+
+--TABLA ADV:
+
+CREATE TABLE IF NOT EXISTS adv (
+id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+globalShadowQuality VARCHAR(255) NOT NULL,
+modelTextureDetail VARCHAR(255) NOT NULL,
+textureStreaming VARCHAR(255) NOT NULL,
+effectDetail VARCHAR(255) NOT NULL,
+shaderDetail VARCHAR(255) NOT NULL,
+boostPlayerContrast VARCHAR(255) NOT NULL,
+multicoreRendering VARCHAR(255) NOT NULL,
+multisamplingAntiAliasingMode VARCHAR(255) NOT NULL,
+fxaaAntiAliasing VARCHAR(255) NOT NULL,
+textureFilteringMode VARCHAR(255) NOT NULL,
+waitForVerticalSync VARCHAR(255) NOT NULL,
+motionBlur VARCHAR(255) NOT NULL,
+tripleMonitorMode VARCHAR(255) NOT NULL,
+useUberShaders VARCHAR(255) NOT NULL,
+pros_id INT,
+FOREIGN KEY (pros_id) REFERENCES profesionals(pros_id)
+);
+
+-- S1mple
+INSERT INTO adv (globalShadowQuality, modelTextureDetail, textureStreaming, effectDetail, shaderDetail, boostPlayerContrast, multicoreRendering, multisamplingAntiAliasingMode, fxaaAntiAliasing, textureFilteringMode, waitForVerticalSync, motionBlur, tripleMonitorMode, useUberShaders,pros_id) 
+VALUES ('Very Low', 'Low', 'Disabled', 'Low', 'Low', 'Disabled', 'Enabled', '8x MSAA', 'Disabled', 'Bilinear', 'Disabled', 'Disabled', 'Disabled', 'Enabled',1);
+-- m0NESY
+INSERT INTO adv (globalShadowQuality, modelTextureDetail, textureStreaming, effectDetail, shaderDetail, boostPlayerContrast, multicoreRendering, multisamplingAntiAliasingMode, fxaaAntiAliasing, textureFilteringMode, waitForVerticalSync, motionBlur, tripleMonitorMode, useUberShaders,pros_id) 
+VALUES ('High', 'Low', 'Disabled', 'Low', 'Low', 'Disabled', 'Enabled', '8x MSAA', 'Disabled', 'Bilinear', 'Disabled', 'Disabled', 'Disabled', 'Disabled',2);
+-- Xantares
+INSERT INTO adv (globalShadowQuality, modelTextureDetail, textureStreaming, effectDetail, shaderDetail, boostPlayerContrast, multicoreRendering, multisamplingAntiAliasingMode, fxaaAntiAliasing, textureFilteringMode, waitForVerticalSync, motionBlur, tripleMonitorMode, useUberShaders,pros_id) 
+VALUES ('Very Low', 'Low', 'Disabled', 'Low', 'Low', 'Enabled', 'Enabled', '4x MSAA', 'Enabled', 'Anisotropic 4x', 'Disabled', 'Disabled', 'Disabled', 'Enabled',3);
+-- NiKo
+INSERT INTO adv (globalShadowQuality, modelTextureDetail, textureStreaming, effectDetail, shaderDetail, boostPlayerContrast, multicoreRendering, multisamplingAntiAliasingMode, fxaaAntiAliasing, textureFilteringMode, waitForVerticalSync, motionBlur, tripleMonitorMode, useUberShaders,pros_id) 
+VALUES ('High', 'Low', 'Disabled', 'Low', 'Low', 'Enabled', 'Enabled', '8x MSAA', 'Disabled', 'Anisotropic 8x', 'Disabled', 'Disabled', 'Disabled', 'Enabled',4);
+-- shroud
+INSERT INTO adv (globalShadowQuality, modelTextureDetail, textureStreaming, effectDetail, shaderDetail, boostPlayerContrast, multicoreRendering, multisamplingAntiAliasingMode, fxaaAntiAliasing, textureFilteringMode, waitForVerticalSync, motionBlur, tripleMonitorMode, useUberShaders,pros_id) 
+VALUES ('High', 'Low', 'Disabled', 'Low', 'Low', 'Enabled', 'Enabled', '8x MSAA', 'Disabled', 'Anisotropic 8x', 'Disabled', 'Disabled', 'Disabled', 'Enabled',5);
+-- KennyS
+INSERT INTO adv (globalShadowQuality, modelTextureDetail, textureStreaming, effectDetail, shaderDetail, boostPlayerContrast, multicoreRendering, multisamplingAntiAliasingMode, fxaaAntiAliasing, textureFilteringMode, waitForVerticalSync, motionBlur, tripleMonitorMode, useUberShaders,pros_id) 
+VALUES ('High', 'Medium', 'Disabled', 'Low', 'Low', 'Enabled', 'Enabled', 'None', 'Disabled', 'Trilinear', 'Disabled', 'Disabled', 'Disabled', 'Enabled',6);
+
+
+SELECT * FROM csconf.adv;
+
+
+--TABLA USERS:
+
+CREATE TABLE IF NOT EXISTS users (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  nombre VARCHAR(255) NOT NULL UNIQUE,
+  password VARCHAR(255) NOT NULL,
+  fecha_reg DATETIME NOT NULL,
+  email VARCHAR(255), -- Campo opcional: correo electrónico del usuario
+  edad INT, -- Campo opcional: edad del usuario
+  telefono VARCHAR(20), -- Campo opcional: número de teléfono del usuario
+  direccion VARCHAR(255), -- Campo opcional: dirección del usuario
+  image blob
+);
+
+SELECT * FROM csconf.users;
+
+
+CREATE TABLE IF NOT EXISTS advuser (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    nombre_configuracion VARCHAR(255) NOT NULL,
+    globalShadowQuality VARCHAR(255) NOT NULL,
+    modelTextureDetail VARCHAR(255) NOT NULL,
+    textureStreaming VARCHAR(255) NOT NULL,
+    effectDetail VARCHAR(255) NOT NULL,
+    shaderDetail VARCHAR(255) NOT NULL,
+    boostPlayerContrast VARCHAR(255) NOT NULL,
+    multicoreRendering VARCHAR(255) NOT NULL,
+    multisamplingAntiAliasingMode VARCHAR(255) NOT NULL,
+    fxaaAntiAliasing VARCHAR(255) NOT NULL,
+    textureFilteringMode VARCHAR(255) NOT NULL,
+    waitForVerticalSync VARCHAR(255) NOT NULL,
+    motionBlur VARCHAR(255) NOT NULL,
+    tripleMonitorMode VARCHAR(255) NOT NULL,
+    useUberShaders VARCHAR(255) NOT NULL,
+	user_id INT,
+    FOREIGN KEY (user_id) REFERENCES users(id),
+	config_id INT
+);
+
+create table armas(
+id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+nombre VARCHAR(20) NOT NULL,
+image blob NOT NULL
+);
+
+insert into armas(nombre, image)values("PISTOLAS", "imagenes/deaglefondo.jpg");
+insert into armas(nombre, image)values("METRALLETAS", "imagenes/umpfondo.jpg");
+insert into armas(nombre, image)values("RIFLES", "imagenes/awpfondo.jpg");
+insert into armas(nombre, image)values("ESCOPETAS", "imagenes/escopeta.jpg");
+insert into armas(nombre, image)values("GRANADAS", "imagenes/granadafondo.jpg");
+
+CREATE TABLE configurations (
+  config_id INT AUTO_INCREMENT PRIMARY KEY,
+  config_name VARCHAR(255) NOT NULL,
+  user_id INT NOT NULL,
+  FOREIGN KEY (user_id) REFERENCES users(id)
+);
+
+
+CREATE TABLE IF NOT EXISTS crosshairuser (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    DrawOutline INT NOT NULL,
+    Alpha INT NOT NULL,
+    Color INT NOT NULL,
+    Blue INT NOT NULL,
+    Green INT NOT NULL,
+    Red INT NOT NULL,
+    Dot INT NOT NULL,
+    Gap INT NOT NULL,
+    Size INT NOT NULL,
+    Style INT NOT NULL,
+    Thickness INT NOT NULL,
+    SniperWidth INT NOT NULL,
+	user_id INT,
+    FOREIGN KEY (user_id) REFERENCES users(id),
+    config_id INT
+);
+
+create table escopetas(
+id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+nombre VARCHAR(20) NOT NULL,
+texto varchar(10000) not null unique,
+precio VARCHAR(10) NOT NULL,
+cargador VARCHAR(10) NOT NULL,
+disparo VARCHAR(255) NOT NULL,
+bando VARCHAR(255) NOT NULL,
+recarga VARCHAR(255) NOT NULL,
+image blob NOT NULL,
+arma_id INT,
+FOREIGN KEY (arma_id) REFERENCES armas(id)
+);
+
+insert into escopetas(nombre,texto,precio,cargador,disparo, bando, recarga, image,arma_id) VALUES ("RECORTADA", "La recortada que mas bien parece un trabuco de mano es un arma exclusiva del bando Terrorista.
+
+A corta distancia es letal, disparada a bocarro es muerte segura.
+
+También tiene su parte negativa y es que es lenta, muy lenta, si fallas el primer disparo estás perdido. Ademas a larga distancia como el resto de escopetas no es muy efectiva.",
+"1200$","7/32","BOMBEO-ACCIÓN","TERRORISTA", "VARIABLE","imagenes/recortada.jpg",4);
+insert into escopetas(nombre,texto,precio,cargador,disparo, bando, recarga, image,arma_id) VALUES ("XM1014", "La XM1014 es la escopeta automática de Counter Strike: Global Offensive.
+ 
+Es un arma muy poderosa a corta y media distancia ya que su alta tasa de disparo y el elevado daño a esa distancia la hacen bastante letal.
+ 
+Por contra podemos decir que es menos precisa que otras escopetas y hace algo menos de daño.",
+"2200$","5-32","SEMI-AUTOMÁTICO","AMBOS BANDOS", "4.2 SEGUNDOS","imagenes/XM1014.jpg",4);
+insert into escopetas(nombre,texto,precio,cargador,disparo, bando, recarga, image,arma_id) VALUES ("MAG-7", "La MAG-7 es la escopeta de bombeo exclusiva del bando antiterrorista. 
+ 
+Dispara algo más rápido que la Nova pero sigue resultando algo lenta. El poder de fuego es bastAnte similar aunque su precisión es mayor.
+ 
+Al igual que el resto de escopetas el dinero recibido por cada muerte con ella es bastante superior.
+ 
+Dispone de un cargador de 5 cartuchos que se recambian de una sola vez lo cual reduce mucho el tiempo de recarga completa.",
+"1800$","5/32","BOMBEO-ACCION","ANTITERRORISTA", "3 SEGUNDOS","imagenes/mag7.jpg",4);
+insert into escopetas(nombre,texto,precio,cargador,disparo, bando, recarga, image,arma_id) VALUES ("NOVA", "Es la escopeta barata, la escopeta de bombeo sustituta de la M3 de otros títulos.
+
+Es una escopeta de bombeo por lo cual la velocidad de disparo es lenta ya que hay que bombear entre cartuchazo y cartuchazo pero el daño a corta distancia es considerable llegando a ser mortal de un solo tiro en cualquier zona del cuerpo si se esta lo suficientemente cercano.",
+"1200$","8/32","BOMBEO-ACCIÓN","AMBOS BANDOS", "VARIA","imagenes/awp.jpg",4);
+
+
+create table granadas(
+id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+nombre VARCHAR(20) NOT NULL,
+texto varchar(10000) not null unique,
+image blob NOT NULL,
+arma_id INT,
+FOREIGN KEY (arma_id) REFERENCES armas(id)
+);
+
+insert into granadas(nombre,texto,image,arma_id) VALUES ("COCTEL MOLOTOV", "Tiene un costo de $400 y se trata de una bomba incendiaria en forma de botella y puede acorralar al enemigo en lugares pequeños.
+
+(Disponible solo en Team Terroristas)","imagenes/molotov.jpg",5);
+insert into granadas(nombre,texto,image,arma_id) VALUES ("GRANADA INCENDIARIA", "Su precio es de $600, técnicamente cumple la misma función que el coctel molotov.
+
+(Disponible solo en Team Antiterroristas)","imagenes/incend.jpg",5);
+insert into granadas(nombre,texto,image,arma_id) VALUES ("GRANADA SEÑUELO", "Tiene un precio de $50, es un poco complicada de usar, pero es sumamente útil y efectiva. Simula el ruido de un tiroteo atrayendo a enemigos hacia una emboscada por tu equipo.","imagenes/señuelo.jpg",5);
+insert into granadas(nombre,texto,image,arma_id) VALUES ("GRANADA ATURDIDORA", "Con un costo de $200, es llamada granada flash, y su función es crear una explosión luminosa que deja ciego a todo aquel que vea la explosión.","imagenes/flash.jpg",5);
+insert into granadas(nombre,texto,image,arma_id) VALUES ("GRANADA HE", "Tiene un precio de $300, explota con mucha potencia siendo letal para enemigos.","imagenes/piña.jpg",5);
+insert into granadas(nombre,texto,image,arma_id) VALUES ("GRANADA DE HUMO", "Su precio es de $300, crea una gran nube de humo que reduce la visión del enemigo.","imagenes/humo.jpg",5);
+
+
+create table metralletas(
+id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+nombre VARCHAR(20) NOT NULL,
+texto varchar(10000) not null unique,
+precio VARCHAR(10) NOT NULL,
+cargador VARCHAR(10) NOT NULL,
+disparo VARCHAR(255) NOT NULL,
+bando VARCHAR(255) NOT NULL,
+recarga VARCHAR(255) NOT NULL,
+image blob NOT NULL,
+arma_id INT,
+FOREIGN KEY (arma_id) REFERENCES armas(id)
+);
+
+insert into metralletas(nombre,texto,precio,cargador,disparo, bando, recarga, image,arma_id) VALUES ("MP7", "<br>La MP7 es un arma de Counter Strike: Global Offensive que está disponible para ambos bandos.
+ 
+Al principio este arma iba a ser exclusiva de Antiterroristas y la PP Bizón para el bando terrorista pero al final se pusieron ambas para los dos bandos.
+ 
+Al igual que el resto de ametralladoras nos da el doble de dinero por muerte.",
+"1700$","30/120","AUTOMÁTICO","AMBOS BANDOS", "3.2 SEGUNDOS","imagenes/mp7.jpg",2);
+insert into metralletas(nombre,texto,precio,cargador,disparo, bando, recarga, image,arma_id) VALUES ("MP9", "Es una de las ametralladoras de Counter Strike: Global Offensive. Sólo está disponible en el bando Antiterrorista. Al igual que con otras ametralladoras el premio por muerte es el doble que con otras armas.",
+"1250$","30/120","AUTOMÁTICO","ANTITERRORISTA", "2.3 SEGUNDOS","imagenes/mp9.jpg",2);
+insert into metralletas(nombre,texto,precio,cargador,disparo, bando, recarga, image,arma_id) VALUES ("PP-BIZON", "<br>La PP-BIZON es una nueva ametralladora que aparece en exclusiva en Counter Strike: Global Offensive y no aparecía en entregas anteriores.
+
+Este SMG capaz de escupir ballas y balas sin cansarse es una buena opción para cortas y medias distancias debido a la amplitud de su cargador.
+ 
+Debido a su bajo precio nos puede ser de utilidad en las rondas iniciales donde el dinero no sobra.",
+"1400$","64/120","SEMI-AUTOMÁTICA", "AMBOS BANDOS", "2.5 SEGUNDOS","imagenes/ppbizon.jpg",2);
+insert into metralletas(nombre,texto,precio,cargador,disparo, bando, recarga, image,arma_id) VALUES ("UMP45", "La UMP45 es una sub-ametrallador moderada a disposición de ambos equipos. La mayoría de los jugadores tienden a no usarla debido a su fuego bajo-medio y baja penetración de los daños. También tiene la tasa más lenta de fuego de todas las SMG. Por estas razones, el UMP45 es muy poco común, por lo general se sustituye por el MP5 o P90.",
+"1200$","25/100","AUTOMÁTICO","AMBOS BANDOS", "3.75 SEGUNDOS","imagenes/ump.jpg",2);
+insert into metralletas(nombre,texto,precio,cargador,disparo, bando, recarga, image,arma_id) VALUES ("P90", "La P90 es una Sub-Metralleta moderadamente potente para los 2 equipos. Es comúnmente utilizada en Mapas pequeños como Office o Nuke, debido a su rápida tasa de Fuego El MP5 se considera mejor por la mayoría de jugadores con inexactitud con la P90 y el retroceso y el Precio. La P90 es todavia muy poderosa para ser una SMG, y es la segunda arma Sub-Metralleta mas popular, por estas razones la P90 se ve comúnmente, especialmente en los mapas Pequeños.",
+"2350$","50/100","AUTOMÁTICO", "AMBOS BANDOS", "3.5 SEGUNDOS","imagenes/p90.jpg",2);
+insert into metralletas(nombre,texto,precio,cargador,disparo, bando, recarga, image,arma_id) VALUES ("MAC-9", "La MAC-9 es un Micro Subfúsil moderadamente potente disponible sólo para los Terroristas. Las principales desventajas de esta arma son su baja precisión y el alto retroceso que tiene. Por estas razones, La MAC-9 es muy poco común, y muy rara se ve durante el juego.",
+"1050$","30/100","AUTOMÁTICO", "TERRORISTA", "3,45 SEGUNDOS","imagenes/mac.jpg",2);
+
+
+CREATE TABLE IF NOT EXISTS mouseuser (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    DPI INT NOT NULL,
+    Sensitivity FLOAT NOT NULL,
+    eDPI INT NOT NULL,
+    ZoomSensitivity INT NOT NULL,
+    Hz INT NOT NULL,
+    WindowsSensitivity INT NOT NULL,
+    RawInput INT NOT NULL,
+    MouseAcceleration INT NOT NULL,
+    user_id INT,
+    FOREIGN KEY (user_id) REFERENCES users(id),
+	config_id INT
+
+);
+
+
+create table pistolas(
+id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+nombre VARCHAR(20) NOT NULL,
+texto varchar(10000) not null unique,
+precio VARCHAR(10) NOT NULL,
+cargador VARCHAR(10) NOT NULL,
+disparo VARCHAR(255) NOT NULL,
+bando VARCHAR(255) NOT NULL,
+recarga VARCHAR(255) NOT NULL,
+image blob NOT NULL,
+arma_id INT,
+FOREIGN KEY (arma_id) REFERENCES armas(id)
+);
+
+insert into pistolas(nombre,texto,precio,cargador,disparo, bando, recarga, image, arma_id) VALUES ("GLOCK-18", "La Glock 18 es un arma bastante ligera. Mientras se ejerce, la velocidad del jugador causa que el movimiento sea de 250 unidades por segundo, lo que significa que no sufre reducción de velocidad. La Glock es una de las muchas armas capaces de disparar bajo el agua.",
+"200$","20/120","SEMI-AUTOMÁTICO / MODO RÁFAGA","TERRORISTA", "2.2 SEGUNDOS","imagenes/glock.jpg",1);
+insert into pistolas(nombre,texto,precio,cargador,disparo, bando, recarga, image, arma_id) VALUES ("USP-S", "La USP es una potente pistola semi-automática a disposición de ambos equipos, aunque, la pistola se generara al comienzo para los Anti-terroristas. La USP es comúnmente descrita como superior a la pistola general Terrorista, la Glock 18 y casi igual a la más cara la P228. Por estas razones, la USP es muy popular debido a que se mantuvo durante la ronda de pistola y luego a veces de muchas rondas. También es la única pistola que puede ser equipada con un Silenciador para aquellos que desean lograr matar en silencio.",
+"200$","12/24","SEMI-AUTOMÁTICO","ANTITERRORISTA", "2,5 SEGUNDOS","imagenes/usps.jpg",1);
+insert into pistolas(nombre,texto,precio,cargador,disparo, bando, recarga, image, arma_id) VALUES ("P2000", "La P2000 es una de las armas que pueden usar de inicio el bando Antiterrorista (o la USP-S). Es un arma semi-automática muy precisa pero con un cargador muy reducido y algo de retroceso. Vino a sustituir a la USP pero tras quejas de la comunidad por el tema del silenciador se puso de manera opcional junto a la USP-S.",
+"200$","13/52","SEMI-AUTOMÁTICA", "ANTITERRORISTA", "2.5 SEGUNDOS","imagenes/p200.jpg",1);
+insert into pistolas(nombre,texto,precio,cargador,disparo, bando, recarga, image, arma_id) VALUES ("TEC-9", "Esta pistola semi-automática esta disponible para el bando terrorista. Al principio era el arma equipada por defecto en el bando terrorista pero más tarde fue sustituida por la Glock-18 en una actualización. Dispone de un cargador muy amplio y una alta tasa de fuego. Además penetra bien en el blindaje y es capaz de matar de un solo disparo en la cabeza incluso con el casco equipado.",
+"500$","32/120","SEMI-AUTOMÁTICO","TERRORISTAS", "2.7 SEGUNDOS","imagenes/tec9.jpg",1);
+insert into pistolas(nombre,texto,precio,cargador,disparo, bando, recarga, image, arma_id) VALUES ("P250", "Pistola semi-automática de nueva aparición en Counter Strike: Global Offensive. Tiene un daño moderadamente alto y destaca su disparo a la cabeza capaz de matar incluso con el casco equipado. Tambien destaca por su bajo précio lo cual la convierte en una opción bastante atractiva.",
+"300$","13/52","SEMI-AUTOMÁTICO", "AMBOS BANDOS", "2.5 SEGUNDOS","imagenes/p250.jpg",1);
+insert into pistolas(nombre,texto,precio,cargador,disparo, bando, recarga, image, arma_id) VALUES ("DESERT EAGLE", "El cañon de mano, está recibiendo muchas criticas tras su última actualización en CS:GO por su recoil y su falta de precisión. Un arma potente donde las halla pero con un cargador muy reducido que puede dejarte vendido si no la dominas a la perfección, no es un arma recomendable para gente con poca experiencia.",
+"800$","7/35","SEMI-AUTOMÁTICO", "AMBOS BANDOS", "2.2 SEGUNDOS","imagenes/deserteagle.jpg",1);
+insert into pistolas(nombre,texto,precio,cargador,disparo, bando, recarga, image, arma_id) VALUES ("BERETTAS DOBLES", "La doble Beretta a sido de siempre una de las armas más populares del bando terrorista, ¿Porque? Porque pegan buenos hits y molan mucho xD. Ahora tras una de las actualizaciones de Counter Strike: Global Offensive las Berettas están disponibles para los dos bandos. Tienen un buen poder de impacto aunque algo flojas contra el blindaje, un gran cargador y disparan rápido, muy rápido, por lo cual son una de las elecciones mas populares entre los jugadores de Counter Strike",
+"700$","30/120","SEMI-AUTOMÁTICO", "AMBOS BANDOS", "3.8 SEGUNDOS","imagenes/berettas.jpg",1);
+insert into pistolas(nombre,texto,precio,cargador,disparo, bando, recarga, image, arma_id) VALUES ("FIVE-SEVEN", "Se trata de una pistola ligera, compacta, con buena cadencia de fuego y precisión si bien quiza se le echa en falta algo de poténcia. No era un arma muy popular hasta Counter Strike: Global Offensive, pero al reducir su precio y mejorar alguno de sus parametros como el daño causado se está convirtiendo en una de las más usadas junto con la P250.",
+"500$","20/100","SEMI-AUTOMÁTICO", "COUNTER TERRORIST", "2.5 SEGUNDOS","imagenes/fiveseven.jpg",1);
+
+
+create table rifles(
+id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+nombre VARCHAR(20) NOT NULL,
+texto varchar(10000) not null unique,
+precio VARCHAR(10) NOT NULL,
+cargador VARCHAR(10) NOT NULL,
+disparo VARCHAR(255) NOT NULL,
+bando VARCHAR(255) NOT NULL,
+recarga VARCHAR(255) NOT NULL,
+image blob NOT NULL,
+arma_id INT,
+FOREIGN KEY (arma_id) REFERENCES armas(id)
+);
+
+insert into rifles(nombre,texto,precio,cargador,disparo, bando, recarga, image,arma_id) VALUES ("AUG", "El AUG es un rifle de asalto automático de gran alcance disponible exclusivamente para los Anti-Terroristas. Aunque no es tan popular como el M4A1, goza de la atracción de muchos jugadores, ya que puede ser un poco más versátil que la M4 debido a su función de zoom. Podría decirse que es más popular que la Clarion 5.56, y puede ser considerada el segundo rifle más popular de los Anti-Terroristas, además tiene mucho en comun con la Krieg 552, como por ejemplo la modalidad de zoom.",
+"3300$","30/90","AUTOMÁTICO","ANTITERRORISTA", "3.8 SEGUNDOS","imagenes/aug.jpg",3);
+insert into rifles(nombre,texto,precio,cargador,disparo, bando, recarga, image,arma_id) VALUES ("FAMAS", "El FAMAS es un Rifle de Asalto de fuego automático bastante potente y disponible exclusivamente para los Anti-Terroristas. El FAMAS Normalmente, se adquiere durante las primeras rondas de la partida y luego pasa con las armas más potentes, como la M4A1.",
+"2250$","25/90","AUTOM/RAFAGA","ANTITERRORISTA", "3.4 SEGUNDOS","imagenes/famas.jpg",3);
+insert into rifles(nombre,texto,precio,cargador,disparo, bando, recarga, image,arma_id) VALUES ("GALIL", "La Galil es un Rifle de asalto moderadamente potente disponible exclusivamente para los Terroristas. Las únicas desventajas principales son su falta de precisión a larga distancia y alto retroceso. También es inusualmente pesada para un Rifle de asalto. Por estas razones, la Galil es poco frecuente, por lo general se reemplaza con la AK-47, después de varias rondas.",
+"2200$","35/90","AUTOMÁTICO","TERRORISTA", "3.3 SEGUNDOS","imagenes/galil.jpg",3);
+insert into rifles(nombre,texto,precio,cargador,disparo, bando, recarga, image,arma_id) VALUES ("M4A1-S", "<br>Es una variante de la M4A4 con un cargador más pequeño y con silenciador.
+ 
+Su precisión es más elevada ya que reduce bastante el retroceso por contra tiene un cargador muy pequeño que nos puede jugar malas pasadas.
+ 
+Podemos elegir entre este arma o su variante M4A4 para equiparnos en el equipo Antiterrorista.",
+"2900$","20/40","AUTOMÁTICO","ANTITERRORISTA", "3.4 SEGUNDOS","imagenes/m4a1s.jpg",3);
+insert into rifles(nombre,texto,precio,cargador,disparo, bando, recarga, image,arma_id) VALUES ("M4A4", "La M4 es un rifle de asalto muy potente disponible exclusivamente para los Anti-Terroristas. Su alto poder, junto con su retroceso muy controlable y difusión, lo convierte en una eficiente contraparte a la AK-47. La M4A1 puede ser dominada para cada situación. Por estas razones, la M4A1 es una de las armas más populares de la serie Counter-Strike.En Counter Strike, si juegas en nivel medio o superior contra BOTS te daras cuenta que los personajes que siempre se compran esta arma con la AK-47, si son terroristas cambian la AK-47 con esta al encontrar una en el piso",
+"3100$","30/90","AUTOMÁTICO","ANTITERRORISTA", "3.4 SEGUNDOS","imagenes/m4a4.jpg",3);
+insert into rifles(nombre,texto,precio,cargador,disparo, bando, recarga, image,arma_id) VALUES ("AK-47", "El AK-47 es un Rifle de Asalto muy potente disponible exclusivamente para los Terroristas. Las únicas desventajas principales son su imprecisión después de varios disparos y el alto retroceso. Su Asombrosa Popularidad se debe en parte a su situación en la cultura pop como el clásico rifle de asalto, y en parte debido a su eficiencia en Counter-Strike. La AK-47 es una de las Armas más populares de la serie Counter-Strike, si no la más popular.",
+"2700$","30/90","AUTOMÁTICO","TERRORISTA", "2.5 SEGUNDOS","imagenes/ak.jpg",3);
+insert into rifles(nombre,texto,precio,cargador,disparo, bando, recarga, image,arma_id) VALUES ("G3SG/1", "El G3SG es un potente rifle semi-automático de francotirador disponible exclusivamente para los Terroristas. Es conocido como una de las armas más dominadas en el juego a pesar de sus desventajas. Por esta razón, el G3SG generalmente se prohibe en muchos servidores públicos que lo hacen inútil.",
+"5000$","20/90","SEMIAUTOMÁTICO","TERRORISTA", "5 SEGUNDOS","imagenes/g3sg1.jpg",3);
+insert into rifles(nombre,texto,precio,cargador,disparo, bando, recarga, image,arma_id) VALUES ("AWP", "El AWP es un potente rifle de cerrojo de francotirador a disposicion de ambas facciones. es famoso por ser capaz de matar instantaneamente a un jugador con un golpe en cualquier parte del cuerpo , excepto las piernas . Por esta razon el AWM es una de las armas mas populares y tan utilizada de Counter Strike. Tambien es el Arma mas poderosa de Counter Strike",
+"4750$","10/30","RIFLE DE CERROJO","AMBOS BANDOS", "3.8 SEGUNDOS","imagenes/awp.jpg",3);
+
+
+CREATE TABLE IF NOT EXISTS videouser (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    Resolution VARCHAR(45) NOT NULL,
+    AspectRatio VARCHAR(45) NOT NULL,
+    ScalingMode VARCHAR(45) NOT NULL,
+    ColorMode VARCHAR(45) NOT NULL,
+    Brightness VARCHAR(45) NOT NULL,
+    DisplayMode VARCHAR(45) NOT NULL,
+	user_id INT,
+    FOREIGN KEY (user_id) REFERENCES users(id),
+	config_id INT
+
+);
+
+
+CREATE TABLE IF NOT EXISTS viewmodeluser (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    FOV INT NOT NULL,
+    OffsetX FLOAT NOT NULL,
+    OffsetY FLOAT NOT NULL,
+    OffsetZ FLOAT NOT NULL,
+    PresetPos INT NOT NULL,
+    ShiftLeftAmt FLOAT NOT NULL,
+    ShiftRightAmt FLOAT NOT NULL,
+    Recoil INT NOT NULL,
+    RightHand INT NOT NULL,
+	user_id INT,
+    FOREIGN KEY (user_id) REFERENCES users(id),
+    config_id INT
+);
+
+
