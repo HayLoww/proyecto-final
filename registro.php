@@ -2,7 +2,9 @@
 <head>
     <title> CSCONF</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-   <link rel="stylesheet" type="text/css" href="estilos.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="estilos.css">
    <script src="script.js"></script>
     <style type="text/css">
     
@@ -18,16 +20,8 @@
         font-weight:bold;
         text-shadow: 4px 4px 4px black;
         font-size: 23px;
-        
     }
     
-    div{
-        color:red;
-        text-shadow: 4px 4px 4px black;
-        font-size:20px;
-        margin-top:40px;
-    }
-
     input[type=text] {
         padding: 7px 10px;
         margin: 20px 10;
@@ -66,18 +60,6 @@
         border-color: black;
         border-radius: 5px;
         font-weight:bold;
-    }
-
-    footer{
-        font-size: 105%;
-        text-align: center;
-        font-weight:bold;
-        text-shadow: 4px 4px 4px black;
-        color: white;
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-        height: 40px;
     }
     
     h1{
@@ -175,10 +157,13 @@
         Confirme contraseña<br> <input type="password" name="contra2" placeholder="Ingresa tu contraseña">
         <br>
         <input type="submit" value="Entrar" name="submit">
-        <?php
+        <br>
+        <br>
+
+    </form>
+    <?php
             include("controlador_reg.php");
         ?>
-    </form>
 
 </body>
 </html>

@@ -9,6 +9,7 @@ $conn = new mysqli("localhost", "javi", "Proyecto_2023", "csconf");
 <head>
     <meta charset="UTF-8">
     <title>Clases</title>
+
 </head>
 <body>
 <?php
@@ -23,9 +24,11 @@ $conn = new mysqli("localhost", "javi", "Proyecto_2023", "csconf");
     $conn->query($sql);
     $sql = 'DELETE FROM advuser WHERE id=' . $_GET['id'];
     $conn->query($sql);
-
+    $sql = 'DELETE FROM configurations WHERE config_id=' . $_GET['id'];
+    $conn->query($sql);
 
     header("Location: lista_configs.php");
+
     die();
 
 ?>

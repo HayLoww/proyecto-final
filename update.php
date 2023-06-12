@@ -3,6 +3,7 @@
 <head>
    <title>CSCONF</title>
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
    <link rel="stylesheet" type="text/css" href="estilos.css">
    <script src="script.js"></script>
 <style type="text/css">
@@ -26,14 +27,7 @@
         
     }
     
-    div{
-        color:red;
-        text-shadow: 4px 4px 4px black;
-        font-size:50px;
-        margin-top:40px;
-        margin-bottom:40px;
 
-    }
 
     input[type=number] {
         padding: 7px 10px;
@@ -234,7 +228,7 @@
 
     if (!empty($_POST["submit"])) {
         if (empty($_POST["email"]) || empty($_POST["edad"]) || empty($_POST["telef"]) || empty($_POST["contra1"]) || empty($_POST["direc"]) || empty($_FILES["imagen"]["tmp_name"])) {
-            echo '<b><div>HACE FALTA RELLENAR TODOS LOS DATOS</div></b>';
+            echo '<script src="datosinc.js"></script>';
 
         } else {
             $email = $_POST["email"];
@@ -260,7 +254,7 @@
             $conn->query($sql);
             $conn->close();
             echo '<meta http-equiv="refresh" content="5;url=userinfo.php">';
-            echo '<h1>¡Datos actualizados correctamente! Redirigiendo a la página de usuario...</h1>';
+            echo '<script src="datos.js"></script>';
             exit();
         }
     }

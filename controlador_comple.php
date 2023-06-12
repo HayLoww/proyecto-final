@@ -7,7 +7,7 @@
 
     if (!empty($_POST["submit"])) {
         if (empty($_POST["email"]) || empty($_POST["edad"]) || empty($_POST["telef"]) || empty($_POST["direc"]) || empty($_FILES["imagen"]["tmp_name"])) {
-            echo '<b><div>HACE FALTA RELLENAR TODOS LOS DATOS</div></b>';
+            echo '<script src="datosinc.js"></script>';
 
         } else {
             $email = $_POST["email"];
@@ -29,7 +29,7 @@
             $conn->query($sql);
             $conn->close();
             echo '<meta http-equiv="refresh" content="5;url=userinfo.php">';
-            echo '<h2>¡Datos actualizados correctamente! Redirigiendo a la página de usuario...</h2>';
+            echo '<script src="datos.js"></script>';
             exit();
         }
     }

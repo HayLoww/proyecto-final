@@ -3,6 +3,9 @@
     <title> CSOCNF</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="estilos.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
    <script src="script.js"></script>
 
     <style type="text/css">
@@ -22,7 +25,7 @@
         
     }
     
-    div{
+    .row{
         font-size:20px;
         color: white;
         text-shadow: 4px 4px 4px black;
@@ -39,6 +42,7 @@
         width: 50%;
         height: 40px;
         text-align:center;
+        justify-content: center;
         border-radius: 15px;
 
     }

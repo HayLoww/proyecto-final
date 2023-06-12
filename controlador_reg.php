@@ -6,9 +6,9 @@
 
     if (!empty($_POST["submit"])) {
         if (empty($_POST["usuario"]) || empty($_POST["contra1"]) || empty($_POST["contra2"])) {
-            echo '<b><div>HACE FALTA INGRESAR UN USUARIO Y CONTRASEÑA</div></b>';
+            echo '<script src="usercontra.js"></script>';
         } else if ($_POST["contra1"] != $_POST["contra2"]) {
-            echo '<b><div>LAS CONTRASEÑAS NO COINCIDEN</div></b>';
+            echo '<script src="contras.js"></script>';
         } else {
             $usuario = $_POST["usuario"];
     
@@ -17,14 +17,14 @@
             $resultado = $conn->query($sql);
     
             if ($resultado->num_rows > 0) {
-                echo '<b><div>ESTE USUARIO YA ESTÁ REGISTRADO</div></b>';
+                echo '<script src="error.js"></script>';
             } else {
                 $contra = password_hash($_POST["contra1"], PASSWORD_DEFAULT); // Cifra la contraseña
                 $sql = "INSERT INTO users (nombre, password, fecha_reg) VALUES ('" . $usuario . "', '" . $contra . "', NOW())";
                 $conn->query($sql);
                 $conn->close();
+                echo '<script src="success.js"></script>';
                 echo '<meta http-equiv="refresh" content="5;url=login.php">';
-                echo '<h2>¡Registro completado exitosamente! Redirigiendo a la página de login...</h2>';
                 exit();
             }
         }

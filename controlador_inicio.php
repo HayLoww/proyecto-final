@@ -3,7 +3,7 @@ session_start();
 
 if (!empty($_POST["submit"])) {
     if (empty($_POST["usuario"]) and empty($_POST["contra"])) {
-        echo '<b><div>HACE FALTA INGRESAR UN USUARIO Y CONTRASEÑA</div></b>';
+        echo '<script src="usercontra.js"></script>';
     } else {
         $usuario = $_POST["usuario"];
         $contra = $_POST["contra"];
@@ -23,11 +23,11 @@ if (!empty($_POST["submit"])) {
                 exit();
             } else {
                 // La contraseña es incorrecta
-                echo '<b><div>EL USUARIO O LA CONTRASEÑA SON INCORRECTOS</div></b>';
+                echo '<script src="usercontraerr.js"></script>';
             }
         } else {
             // El usuario no existe
-            echo '<b><div>EL USUARIO O LA CONTRASEÑA SON INCORRECTOS</div></b>';
+            echo '<script src="usercontraerr.js"></script>';
         }
     }
 }

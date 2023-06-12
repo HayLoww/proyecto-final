@@ -15,7 +15,7 @@ if (!empty($_POST["crear"])) {
     }
     
     if ($camposVacios) {
-        echo "<h1  id='error'>Por favor, complete todos los campos.</h1>";
+        echo '<script src="datosinc.js"></script>';
     
         } else {
         // Insertar el nombre de configuración en la tabla configurations
@@ -99,8 +99,8 @@ if (!empty($_POST["crear"])) {
                     VALUES ('$config_name','$globalshadowquality', '$modeltexturedetail', '$texturestreaming', '$effectdetail', '$shaderdetail', '$boostplayercontrast', '$multicorerendering', '$multisamplingantialiasingmode', '$fxaaantialiasing', '$texturefilteringmode', '$waitforverticalsync', '$motionblur', '$triplemonitormode', '$useubershaders', '" . $_SESSION['id'] . "', '$config_id')";
             $conn->query($sql);
     
+            echo '<script src="usrconf.js"></script>';
             echo '<meta http-equiv="refresh" content="5;url=lista_configs.php">';
-            echo '<h1 id="acierto">¡Datos insertados correctamente! Redirigiendo a la página de usuario...</h1>';
         } else {
             echo "Error: " . $sql . "<br>" . $conn->error;
         }

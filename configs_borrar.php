@@ -1,5 +1,5 @@
 <?php
-// Obtener el nombre de la configuración a borrar de la URL
+/*// Obtener el nombre de la configuración a borrar de la URL
 $nombre_configuracion = $_GET['nombre'];
 
 // Conexión a la base de datos (ajusta los detalles de conexión según tus necesidades)
@@ -24,4 +24,4 @@ if ($conexion->affected_rows > 0) {
 
 // Cerrar la conexión a la base de datos
 $conexion->close();
-?>
+*/?>
